@@ -1,18 +1,18 @@
 const Discord = require('discord.js');
 
-const client = new Discord.Client();
+const app = new Discord.Client();
 
  
 
-client.on('ready', () => {
+app.on('ready', () => {
 
-    console.log('I am ready!');
+    console.log('접속 중 입니다!');
 
 });
 
  
 
-client.on('message', message => {
+app.on('message', message => {
 
     if (message.content === 'ping') {
 
@@ -29,4 +29,4 @@ client.on('message', message => {
 BOT_TOKEN = "NTM4MzE2NTIzNTcyNDI4ODAz.XPKR5w.P3AB2-rn6DnFqIoDkzFrAwUqOQg"
 
 
-client.login(process.env.BOT_TOKEN);//BOT_TOKEN is the Client Secret
+app.login(process.env.BOT_TOKEN);//BOT_TOKEN is the Client Secret
