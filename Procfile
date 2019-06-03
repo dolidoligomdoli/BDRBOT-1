@@ -1,2 +1,2 @@
-worker: python BDRBOT .py
+worker: python3 BDRBOT .py
 
