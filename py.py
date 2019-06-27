@@ -34,6 +34,7 @@ async def on_message(message):
         await message.channel.send("============")
         await message.channel.send("**!PC 게임 추천 = 배돌이가 엄선된 정보를 가지고 정확히 3개의 게임을 추천 합니다.")
         await message.channel.send("**!패치노트 = 배돌이 프로젝트의 패치노트가 궁금하신분들 위해 준비했습니다.")
+        await message.channel.send("***명령어 목록은 계속 추가중 입니다 ^00^")
     if message.content.startswith("!컴퓨터는?"):
         await message.channel.send("컴맹들을 위한 천국, 컴퓨존이지!")
     if message.content.startswith("!커뮤니티 웹사이트 추천"):
@@ -50,7 +51,7 @@ async def on_message(message):
         await message.channel.send("***TOP 3***")
         await message.channel.send("1위는 클래시 오브 클랜 입니다")
         await message.channel.send("2위는 이제 모바일에서도 배틀그라운드!, 배틀그라운드 모바일 입니다")
-        await message.channel.send("3위는 없습니다;;")
+        await message.channel.send("3위는 중국산 모바일 리그오브레전드!, 펜타스톰 입니다;;")
     if message.content.startswith("!자기소개"):
         await message.channel.send("안녕? 난 배돌이란다.")
         await message.channel.send("너희들이 디스코드 서버를 잘 이용할 수 있도록 ")
@@ -73,6 +74,8 @@ async def on_message(message):
         await message.channel.send("*0.0.2 : 명령어 목록 작성, 일부 에러 구문 수정! ")
         await message.channel.send("*0.0.3 : 일부 에러 구문 수정, 일부 명령어 추가! ")
         await message.channel.send("*0.0.4 : 2019년 06월 27일 목요일, 배돌이봇 호스팅 시작! ")
+        await message.channel.send("***패치노트는 계속 업데이트 할 예정입니다 ^00^")
+        await message.channel.send("***재밌는 기능들이 여러분들을 기다리고 있으니 기대하셔도 좋습니다 ^00^")
 
 @app.event
 async def my_background_task():
