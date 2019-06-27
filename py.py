@@ -78,6 +78,11 @@ async def on_message(message):
         await message.channel.send("***재밌는 기능들이 여러분들을 기다리고 있으니 기대하셔도 좋습니다 ^00^")
 
 @app.event
+embed = discord.Embed(title="명령어 목록", 
+description="안녕? 난 뉴 배돌이라고 해, 너희들과 대화를 나눠보고 싶어.", 
+await app.message.channel.send( embed=embed)
+
+@app.event
 async def my_background_task():
     await app.wait_until_ready()
     channel = discord.Object(id="585087748952817665")
