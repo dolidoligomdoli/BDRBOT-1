@@ -67,18 +67,18 @@ async def on_message(message):
         await message.channel.send("2위는 이겼닭! 오늘 저녁은 치킨이닭!, 배틀그라운드 입니다.")
         await message.channel.send("3위는 소환사의 협곡에 오신 것을 환영합니다. , 리그 오브 레전드 입니다.")
     if message.content.startswith("!패치노트"):
-        await message.channel.send("2019년 01월 배돌이 프로젝트를 시작!")
-        await message.channel.send("2019년 06월 01일 갑작스런 사태로 컴퓨터에 저장해놓은 프로젝트 파일이 사라짐.")
-        await message.channel.send("2019년 06월 02일부터 배돌이 프로젝트 기반의 뉴 배돌이 베타 0.0.1을 제작!")
-        await message.channel.send("0.0.2 : 명령어 목록 작성, 일부 에러 구문 수정! ")
-        await message.channel.send("0.0.3 : 일부 에러 구문 수정, 일부 명령어 추가! ")
-        await message.channel.send("0.0.4 : 2019년 06월 27일 목요일, 배돌이봇 호스팅 시작! ")
+        await message.channel.send("*2019년 01월 배돌이 프로젝트 개발 시작!")
+        await message.channel.send("*2019년 06월 01일 갑작스런 사태로 컴퓨터에 저장해놓은 프로젝트 파일이 사라짐.")
+        await message.channel.send("*2019년 06월 02일부터 배돌이 프로젝트 기반의 뉴 배돌이 베타 0.0.1을 개발 시작!")
+        await message.channel.send("*0.0.2 : 명령어 목록 작성, 일부 에러 구문 수정! ")
+        await message.channel.send("*0.0.3 : 일부 에러 구문 수정, 일부 명령어 추가! ")
+        await message.channel.send("*0.0.4 : 2019년 06월 27일 목요일, 배돌이봇 호스팅 시작! ")
 
 @app.event
 async def my_background_task():
-    await client.wait_until_ready()
+    await app.wait_until_ready()
     channel = discord.Object(id="585087748952817665")
-    while not client.is_closed:
+    while not app.is_closed:
         await message.channel.send(channel,"용병님들! 요즘 뭐 바쁜 일 있으세요?")
         await message.channel.send(channel,"요즘 너무 배틀그라운드 모바일을 멀리 하시네요 ㅠㅜ")
         await message.channel.send(channel,"지금 배틀그라운드 모바일 접속하시면 좋은 일이 생길거에요~!!")
