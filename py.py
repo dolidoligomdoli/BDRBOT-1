@@ -79,32 +79,32 @@ async def my_background_task():
     await app.wait_until_ready()
     channel = discord.Object(id="585087748952817665")
     while not app.is_closed:
-        await app.send_message(channel, "용병님들! 요즘 배틀그라운드 모바일을 너무 멀리하시는 것 같아요 ㅠㅜ")
-        await app.send_message(channel, "공부도 좋지만 가끔은 이러고 노는게 더 정신건강에 좋답니다 ㅎㅎ")
-        await app.send_message(channel, "빨리 접속하세요!!")
+        await app.message.channel.send( "용병님들! 요즘 배틀그라운드 모바일을 너무 멀리하시는 것 같아요 ㅠㅜ")
+        await app.message.channel.send( "공부도 좋지만 가끔은 이러고 노는게 더 정신건강에 좋답니다 ㅎㅎ")
+        await app.message.channel.send( "빨리 접속하세요!!")
         await asyncio.sleep(60*60*24) 
 
 @client.event
 async def on_member_join(member):
     fmt = '{1.name} 에 오신것을 환영합니다., {0.mention} 님'
     channel = member.server.get_channel("585087748952817665")
-    await app.send_message(channel, fmt.format(member, member.server))
+    await app.message.channel.send( fmt.format(member, member.server))
  
 @client.event
 async def on_member_remove(member):
     channel = member.server.get_channel("585087748952817665")
     fmt = '{0.mention} 님이 서버에서 나가셨습니다.'
-    await app.send_message(channel, fmt.format(member, member.server))
+    await app.message.channel.send( fmt.format(member, member.server))
 
 @app.event
 async def on_member_join(member):
     fmt = '{1.name} 에 오신걸 환영합니다, {0.mention} 님'
     channel = member.server.get_channel("585087748952817665")
-    await app.send_message(channel, fmt.format(member, member.server))
-    await app.send_message(member, "안녕? 난 뉴 배돌이야.")
-    await app.send_message(member, "뭐 궁금한 점이 있으면 나한테 물어봐.")
-    await app.send_message(member, "내가 알려줄 수 있는 범위 안에서 최선을 다해 알려줄테니까.")
-    await app.send_message(member, "아 참! 우리 서버에 들어온 것을 환영해~")
+    await app.message.channel.send(fmt.format(member, member.server))
+    await app.message.send(member, "안녕? 난 뉴 배돌이야.")
+    await app.message.send(member, "뭐 궁금한 점이 있으면 나한테 물어봐.")
+    await app.message.send(member, "내가 알려줄 수 있는 범위 안에서 최선을 다해 알려줄테니까.")
+    await app.message.send(member, "아 참! 우리 서버에 들어온 것을 환영해~")
 
 
 accross_token = os.environ["BOT_TOKEN"]
