@@ -76,14 +76,15 @@ async def on_message(message):
 
 @app.event
 async def my_background_task():
-    await app.wait_until_ready()
+    await client.wait_until_ready()
     channel = discord.Object(id="585087748952817665")
-    while not app.is_closed:
-        await message.channel.send("용병님들! 요즘 뭐 바쁜 일 있으세요?")
-        await message.channel.send("지금 배틀그라운드 모바일 접속하시면 좋은 일이 생길거에요~!!")
-        await message.channel.send("행복한 하루 되세요~ ^00^ ")
-        await asyncio.sleep(604800) 
-
+    while not client.is_closed:
+        await message.channel.send(channel,"용병님들! 요즘 뭐 바쁜 일 있으세요?")
+        await message.channel.send(channel,"요즘 너무 배틀그라운드 모바일을 멀리 하시네요 ㅠㅜ")
+        await message.channel.send(channel,"지금 배틀그라운드 모바일 접속하시면 좋은 일이 생길거에요~!!")
+        await message.channel.send(channel,"공부도 물론 좋지만, 가끔은 이런 일탈도 즐겨야죠.")
+        await message.channel.send(channel,"행복한 하루 되세요~ ^00^ ")
+        await asyncio.sleep(604800.0) 
 @app.event
 async def on_member_join(member):
     fmt = '{1.name} 에 오신것을 환영합니다., {0.mention} 님'
