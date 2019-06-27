@@ -69,25 +69,25 @@ async def on_message(message):
 @app.event
 async def on_member_join(member):
     fmt = '{1.name} 에 오신것을 환영합니다., {0.mention} 님'
-    channel = member.server.get_channel("채널 아이디")
+    channel = member.server.get_channel("accross_id")
     await message.channel.send(channel, fmt.format(member, member.server))
  
 @app.event
 async def on_member_remove(member):
-    channel = member.server.get_channel("채널 아이디")
+    channel = member.server.get_channel("accross_id")
     fmt = '{0.mention} 님이 서버에서 나가셨습니다.'
     await app.message.channel.send(channel, fmt.format(member, member.server))
 
 @app.event
 async def on_member_join(member):
     fmt = '{1.name} 에 오신걸 환영합니다, {0.mention} 님'
-    channel = member.server.get_channel("채널 아이디")
+    channel = member.server.get_channel("accross_id")
     await app.message.channel.send(channel, fmt.format(member, member.server))
     await app.message.channel.send(member, "안녕? 난 뉴 배돌이야.")
     await app.message.channel.send(member, "뭐 궁금한 점이 있으면 나한테 물어봐.")
     await app.message.channel.send(member, "내가 알려줄 수 있는 범위 안에서 최선을 다해 알려줄테니까.")
     await app.message.channel.send(member, "아 참! 우리 서버에 들어온 것을 환영해~")
 
-
+accross_id = os.environ["CHANNEL_ID"]
 accross_token = os.environ["BOT_TOKEN"]
 app.run(accross_token)
