@@ -99,17 +99,17 @@ async def on_member_join(member):
     await app.message.channel.send(member, "아 참! 우리 서버에 들어온 것을 환영해~")
 
 @app.event
-bot = commands.Bot(command_prefix='!')
+bot = commands.Bot(command_prefix='!!')
  
 async def func_comeon(NC):
     voice = bot.voice_client_in(NC.message.server)
     if NC.message.author.voice.voice_channel:
         if voice:
-            if voice.channel != NC.message.author.voice.voice_channel:
+            if voice.channel !!= NC.message.author.voice.voice_channel:
                 print('초대할 서버로 초대하는 중...')
                 await voice.move_to(NC.message.author.voice.voice_channel)
         else:
-            print('체널에 합류시키는 중...')
+            print('널에 합류시키는 중...')
             voice = await bot.join_voice_channel(NC.message.author.voice.voice_channel)
     else:
         await bot.say('ㅠㅠ너 진짜 어디에 있니??')
