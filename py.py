@@ -20,10 +20,21 @@ async def on_message(message):
     if message.content.startswith("!안녕"):
         await message.channel.send("안녕?")
     if message.content.startswith("!도와줘"):
-        embed = discord.Embed(title="명령어 목록", 
-        description="안녕? 난 뉴 배돌이라고 해, 너희들과 대화를 나눠보고 싶어.", 
-        await app.message.channel.send( embed=embed)
-        
+        await message.channel.send("***명령어 목록***")
+        await message.channel.send("============")
+        await message.channel.send("**안녕? 난 뉴 배돌이라고 해. 너희들과 대화를 나눠보고 싶어.")
+        await message.channel.send("============")
+        await message.channel.send("**!도와줘 = 배돌이가 명령어 목록창을 보여줍니다. ")
+        await message.channel.send("**!컴퓨터는? = 똑똑한 배돌이가 제일 믿음직한 업체를 선별해 드립니다!")
+        await message.channel.send("**!커뮤니티 웹사이트 추천 = 배돌이가 커뮤니티 웹사이트 TOP 3를 선별하여 리스트를 보여줍니다.")
+        await message.channel.send("============")
+        await message.channel.send("**!볼 만한 유튜버 추천 = 배돌이가 괜찮은 유튜버를 엄격히 선별하여 정확히 3명을 추천 합니다.")
+        await message.channel.send("**!모바일 게임 추천 = 배돌이가 모바일 게임을 TOP 3로 분류하여 정확히 3개의 게임들을 추천 합니다.")
+        await message.channel.send("**!자기소개 = 배돌이가 자기 소개를 해줍니다.")
+        await message.channel.send("============")
+        await message.channel.send("**!PC 게임 추천 = 배돌이가 엄선된 정보를 가지고 정확히 3개의 게임을 추천 합니다.")
+        await message.channel.send("**!패치노트 = 배돌이 프로젝트의 패치노트가 궁금하신분들 위해 준비했습니다.")
+        await message.channel.send("***명령어 목록은 계속 추가중 입니다 ^00^")
     if message.content.startswith("!컴퓨터는?"):
         await message.channel.send("컴맹들을 위한 천국, 컴퓨존이지!")
     if message.content.startswith("!커뮤니티 웹사이트 추천"):
@@ -66,10 +77,6 @@ async def on_message(message):
         await message.channel.send("***패치노트는 계속 업데이트 할 예정입니다 ^00^")
         await message.channel.send("***재밌는 기능들이 여러분들을 기다리고 있으니 기대하셔도 좋습니다 ^00^")
 
-@app.event
-embed = discord.Embed(title="명령어 목록", 
-description="안녕? 난 뉴 배돌이라고 해, 너희들과 대화를 나눠보고 싶어.", 
-await app.message.channel.send( embed=embed)
 
 @app.event
 async def my_background_task():
