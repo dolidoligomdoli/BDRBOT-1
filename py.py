@@ -69,7 +69,7 @@ async def on_message(message):
 @app.event
 async def my_background_task():
     await app.wait_until_ready()
-    channel = discord.Object(id='CHANNEL_ID')
+    channel = discord.Object(id=CHANNEL_ID)
     while not app.is_closed:
         await message.channel.send("용병님들! 요즘 뭐 바쁜 일 있으세요?")
         await message.channel.send("지금 배틀그라운드 모바일 접속하시면 좋은 일이 생길거에요~!!")
@@ -125,7 +125,9 @@ async def play(NC):
     voice = await func_comeon(NC)
     player = voice.create_ffmpeg_player('music.mp3')
     player.start()
- 
+
+bot.run(accross_token)
+
 app.loop.create_task(my_background_task())
 CHANNEL_ID = os.environ["CHANNEL_ID"]
 accross_token = os.environ["BOT_TOKEN"]
