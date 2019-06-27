@@ -80,7 +80,7 @@ async def my_background_task():
     channel = discord.Object(id="585087748952817665")
     while not app.is_closed:
         await message.channel.send("배틀그라운드 모바일을 지금 당장 접속하세요!")
-        await asyncio.sleep(604800.0) 
+        await asyncio.sleep(60*60*24)
 @app.event
 async def on_member_join(member):
     fmt = '{1.name} 에 오신것을 환영합니다., {0.mention} 님'
