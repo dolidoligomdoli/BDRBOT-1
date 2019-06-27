@@ -1,10 +1,10 @@
 #Work with Python 3.7.3
 import asyncio, discord, datetime, logging, random, traceback, time, os, openpyxl, json
-import sys, bs4, urllib, urlopen, youtube_dl, urllib.request
+import sys, bs4, urllib, urlopen, youtube_dl
 from discord.ext import commands
 from discord import Member
 from selenium import webdriver
-from urllib.request import urlopen, Request
+
 
 app = discord.Client()
         
