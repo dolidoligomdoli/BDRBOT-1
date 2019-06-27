@@ -33,7 +33,6 @@ async def on_message(message):
         await message.channel.send("**!자기소개 = 배돌이가 자기 소개를 해줍니다.")
         await message.channel.send("============")
         await message.channel.send("**!PC 게임 추천 = 배돌이가 엄선된 정보를 가지고 정확히 3개의 게임을 추천 합니다.")
-        await message.channel.send("============")
         await message.channel.send("**!패치노트 = 배돌이 프로젝트의 패치노트가 궁금하신분들 위해 준비했습니다.")
     if message.content.startswith("!컴퓨터는?"):
         await message.channel.send("컴맹들을 위한 천국, 컴퓨존이지!")
