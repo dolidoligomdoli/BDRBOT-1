@@ -71,9 +71,9 @@ async def my_background_task():
     await app.wait_until_ready()
     channel = discord.Object(id='CHANNEL_ID')
     while not app.is_closed:
-        await app.channel.send("용병님들! 요즘 뭐 바쁜 일 있으세요?")
-        await app.channel.send("지금 배틀그라운드 모바일 접속하시면 좋은 일이 생길거에요~!!")
-        await app.channel.send("행복한 하루 되세요~ ^00^ ")
+        await message.channel.send("용병님들! 요즘 뭐 바쁜 일 있으세요?")
+        await message.channel.send("지금 배틀그라운드 모바일 접속하시면 좋은 일이 생길거에요~!!")
+        await message.channel.send("행복한 하루 되세요~ ^00^ ")
         await asyncio.sleep(604800) 
 
 @app.event
