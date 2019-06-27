@@ -1,13 +1,4 @@
-discord.py==0.16.12
-import discord==0.16.12
-import datetime==0.16.12
-import logging==0.16.12
-import random==0.16.12
-import traceback==0.16.12
-import time==0.16.12
-import os==0.16.12
-import asyncio==0.16.12
-
+discord.py
 
 
 
