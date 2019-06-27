@@ -84,13 +84,13 @@ async def my_background_task():
         await app.message.channel.send( "빨리 접속하세요!!")
         await asyncio.sleep(60*60*24) 
 
-@client.event
+@app.event
 async def on_member_join(member):
     fmt = '{1.name} 에 오신것을 환영합니다., {0.mention} 님'
     channel = member.server.get_channel("585087748952817665")
     await app.message.channel.send( fmt.format(member, member.server))
  
-@client.event
+@app.event
 async def on_member_remove(member):
     channel = member.server.get_channel("585087748952817665")
     fmt = '{0.mention} 님이 서버에서 나가셨습니다.'
