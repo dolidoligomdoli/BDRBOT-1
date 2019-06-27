@@ -69,29 +69,29 @@ async def on_message(message):
 @app.event
 async def my_background_task():
     await app.wait_until_ready()
-    channel = discord.Object(id="accross_id")
+    channel = discord.Object(id=accross_id)
     while not app.is_closed:
         await app.channel.send("용병님들! 요즘 뭐 바쁜 일 있으세요?")
         await app.channel.send("지금 배틀그라운드 모바일 접속하시면 좋은 일이 생길거에요~!!")
         await app.channel.send("행복한 하루 되세요~ ^00^ ")
-        await asyncio.sleep(604800.0) 
+        await asyncio.sleep(604800) 
 
 @app.event
 async def on_member_join(member):
     fmt = '{1.name} 에 오신것을 환영합니다., {0.mention} 님'
-    channel = member.server.get_channel("accross_id")
+    channel = member.server.get_channel(accross_id)
     await message.channel.send(channel, fmt.format(member, member.server))
  
 @app.event
 async def on_member_remove(member):
-    channel = member.server.get_channel("accross_id")
+    channel = member.server.get_channel(accross_id)
     fmt = '{0.mention} 님이 서버에서 나가셨습니다.'
     await app.message.channel.send(channel, fmt.format(member, member.server))
 
 @app.event
 async def on_member_join(member):
     fmt = '{1.name} 에 오신걸 환영합니다, {0.mention} 님'
-    channel = member.server.get_channel("accross_id")
+    channel = member.server.get_channel(accross_id)
     await app.message.channel.send(channel, fmt.format(member, member.server))
     await app.message.channel.send(member, "안녕? 난 뉴 배돌이야.")
     await app.message.channel.send(member, "뭐 궁금한 점이 있으면 나한테 물어봐.")
