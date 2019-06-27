@@ -33,6 +33,8 @@ async def on_message(message):
         await message.channel.send("**!자기소개 = 배돌이가 자기 소개를 해줍니다.")
         await message.channel.send("============")
         await message.channel.send("**!PC 게임 추천 = 배돌이가 엄선된 정보를 가지고 정확히 3개의 게임을 추천 합니다.")
+        await message.channel.send("============")
+        await message.channel.send("**!패치노트 = 배돌이 프로젝트의 패치노트가 궁금하신분들 위해 준비했습니다.")
     if message.content.startswith("!컴퓨터는?"):
         await message.channel.send("컴맹들을 위한 천국, 컴퓨존이지!")
     if message.content.startswith("!커뮤니티 웹사이트 추천"):
@@ -65,11 +67,18 @@ async def on_message(message):
         await message.channel.send("1위는 새로운 영웅은 언제나 환영이야~, 오버워치 입니다.")
         await message.channel.send("2위는 이겼닭! 오늘 저녁은 치킨이닭!, 배틀그라운드 입니다.")
         await message.channel.send("3위는 소환사의 협곡에 오신 것을 환영합니다. , 리그 오브 레전드 입니다.")
+    if message.content.startswith("!패치노트"):
+        await message.channel.send("2019년 01월 배돌이 프로젝트를 시작!")
+        await message.channel.send("2019년 06월 01일 갑작스런 사태로 컴퓨터에 저장해놓은 프로젝트 파일이 사라짐.")
+        await message.channel.send("2019년 06월 02일부터 배돌이 프로젝트 기반의 뉴 배돌이 베타 0.0.1을 제작!")
+        await message.channel.send("0.0.2 : 명령어 목록 작성, 일부 에러 구문 수정! ")
+        await message.channel.send("0.0.3 : 일부 에러 구문 수정, 일부 명령어 추가! ")
+        await message.channel.send("0.0.4 : 2019년 06월 27일 목요일, 배돌이봇 호스팅 시작! ")
 
 @app.event
 async def my_background_task():
     await app.wait_until_ready()
-    channel = discord.Object(id='585087748952817665')
+    channel = discord.Object(id="585087748952817665")
     while not app.is_closed:
         await message.channel.send("용병님들! 요즘 뭐 바쁜 일 있으세요?")
         await message.channel.send("지금 배틀그라운드 모바일 접속하시면 좋은 일이 생길거에요~!!")
@@ -79,19 +88,19 @@ async def my_background_task():
 @app.event
 async def on_member_join(member):
     fmt = '{1.name} 에 오신것을 환영합니다., {0.mention} 님'
-    channel = member.server.get_channel(585087748952817665)
+    channel = member.server.get_channel("585087748952817665")
     await message.channel.send(channel, fmt.format(member, member.server))
  
 @app.event
 async def on_member_remove(member):
-    channel = member.server.get_channel(585087748952817665)
+    channel = member.server.get_channel("585087748952817665")
     fmt = '{0.mention} 님이 서버에서 나가셨습니다.'
     await app.message.channel.send(channel, fmt.format(member, member.server))
 
 @app.event
 async def on_member_join(member):
     fmt = '{1.name} 에 오신걸 환영합니다, {0.mention} 님'
-    channel = member.server.get_channel(585087748952817665)
+    channel = member.server.get_channel("585087748952817665")
     await app.message.channel.send(channel, fmt.format(member, member.server))
     await app.message.channel.send(member, "안녕? 난 뉴 배돌이야.")
     await app.message.channel.send(member, "뭐 궁금한 점이 있으면 나한테 물어봐.")
