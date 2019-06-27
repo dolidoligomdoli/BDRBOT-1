@@ -1,9 +1,6 @@
 #Work with Python 3.7.3
-import asyncio, discord, datetime, logging, random, traceback, time, os, openpyxl, json
-import sys, bs4, urllib, urlopen, youtube_dl
+import asyncio, discord, datetime, logging, random, traceback, time, os, 
 from discord.ext import commands
-from discord import Member
-from selenium import webdriver
 
 
 app = discord.Client()
