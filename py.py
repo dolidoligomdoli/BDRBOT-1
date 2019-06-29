@@ -20,21 +20,23 @@ async def on_message(message):
     if message.content.startswith("!안녕"):
         await message.channel.send("안녕?")
     if message.content.startswith("!도와줘"):
-        await message.channel.send("***명령어 목록***")
-        await message.channel.send("============")
-        await message.channel.send("**안녕? 난 뉴 배돌이라고 해. 너희들과 대화를 나눠보고 싶어.")
-        await message.channel.send("============")
-        await message.channel.send("**!도와줘 = 배돌이가 명령어 목록창을 보여줍니다. ")
-        await message.channel.send("**!컴퓨터는? = 똑똑한 배돌이가 제일 믿음직한 업체를 선별해 드립니다!")
-        await message.channel.send("**!커뮤니티 웹사이트 추천 = 배돌이가 커뮤니티 웹사이트 TOP 3를 선별하여 리스트를 보여줍니다.")
-        await message.channel.send("============")
-        await message.channel.send("**!볼 만한 유튜버 추천 = 배돌이가 괜찮은 유튜버를 엄격히 선별하여 정확히 3명을 추천 합니다.")
-        await message.channel.send("**!모바일 게임 추천 = 배돌이가 모바일 게임을 TOP 3로 분류하여 정확히 3개의 게임들을 추천 합니다.")
-        await message.channel.send("**!자기소개 = 배돌이가 자기 소개를 해줍니다.")
-        await message.channel.send("============")
-        await message.channel.send("**!PC 게임 추천 = 배돌이가 엄선된 정보를 가지고 정확히 3개의 게임을 추천 합니다.")
-        await message.channel.send("**!패치노트 = 배돌이 프로젝트의 패치노트가 궁금하신분들 위해 준비했습니다.")
-        await message.channel.send("***명령어 목록은 계속 추가중 입니다 ^00^")
+        embed = discord.Embed(
+            title=learn[1]+ ' 명령어 목록',
+            description=learn[1]+ '안녕? 난 뉴 배돌이라고 해. 너희들과 대화를 나눠보고 싶어.',
+            colour=discord.Colour.gold()
+        )
+        embed.add_field(title='!안녕', description="배돌이가 인사를 합니다", inline=False) 
+        embed.add_field(title='!도와줘', description="배돌이가 명령어 목록창을 보여줍니다", inline=False)  
+        embed.add_field(title='!컴퓨터는?', description="배돌이가 제일 괜찮은 업체를 선별해 드립니다!",  inline=False)  
+        embed.add_field(title='!커뮤니티 웹사이트 추천', description="배돌이가 커뮤니티 웹사이트 3곳을 선별하여 리스트로 보여줍니다",  value=todayMiseaMongi, inline=False)  
+        embed.add_field(title='!볼 만한 유튜버 추천', description="배돌이가 괜찮은 유튜버를 엄격히 선별하여 3명을 추천합니다",  inline=False)  
+        embed.add_field(title='!모바일 게임 추천', description="배돌이가 모바일 게임 3개를 선별하여 추천합니다",  inline=False)  
+        embed.add_field(title='!자기소개', description="배돌이가 자기소개를 해줍니다",  inline=False)  
+        embed.add_field(title='!PC 게임 추천', description="배돌이가 PC 게임 3개를 선별하여 추천합니다.",  inline=False)  
+        embed.add_field(title='!패치노트', description="배돌이봇의 패치노트 입니다",  inline=False) 
+        embed.add_field(title='*명령어 목록은 계속 업데이팅 중 입니다.', inline=False) 
+        await app.send_message(message.channel,embed=embed)
+        
     if message.content.startswith("!컴퓨터는?"):
         await message.channel.send("컴맹들을 위한 천국, 컴퓨존이지!")
     if message.content.startswith("!커뮤니티 웹사이트 추천"):
@@ -105,10 +107,10 @@ async def on_member_join(member):
     fmt = '{1.name} 에 오신걸 환영합니다, {0.mention} 님'
     channel = member.server.get_channel("585087748952817665")
     await app.message.channel.send(fmt.format(member, member.server))
-    await app.message.send(member, "안녕? 난 뉴 배돌이야.")
-    await app.message.send(member, "뭐 궁금한 점이 있으면 나한테 물어봐.")
-    await app.message.send(member, "내가 알려줄 수 있는 범위 안에서 최선을 다해 알려줄테니까.")
-    await app.message.send(member, "아 참! 우리 서버에 들어온 것을 환영해~")
+    await app.message.channel.send(member, "안녕? 난 뉴 배돌이야.")
+    await app.message.channel.send(member, "뭐 궁금한 점이 있으면 나한테 물어봐.")
+    await app.message.channel.send(member, "내가 알려줄 수 있는 범위 안에서 최선을 다해 알려줄테니까.")
+    await app.message.channel.send(member, "아 참! 우리 서버에 들어온 것을 환영해~")
 
 
 accross_token = os.environ["BOT_TOKEN"]
