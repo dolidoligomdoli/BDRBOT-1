@@ -11,7 +11,7 @@ async def on_ready():
     print(app.user.name)
     print(app.user.id)
     print('===============')
-    game = discord.Game("배돌이에게 !안녕이라  인사해보렴")
+    game = discord.Game("배돌이에게 !도와줘라고 도움을 요청해보렴!")
     await app.change_presence(status=discord.Status.online, activity=game)
 
 @app.event
