@@ -17,8 +17,6 @@ async def on_ready():
 @app.event
 async def on_message(message):
 
-    if message.content.startswith("!안녕"):
-        await message.channel.send("안녕?")
     if message.content.startswith("!도와줘"):
         embed = discord.Embed(title=" 명령어 목록 ", description=" 안녕? 난 뉴 배돌이라고 해. 너희들과 대화를 나눠보고 싶어. ", color=0xff0000)
         await message.channel.send(embed=embed)
@@ -31,7 +29,7 @@ async def on_message(message):
         embed = discord.Embed(title=" !커뮤니티 웹사이트 추천 ", description=" 배돌이가 괜찮은 커뮤니티 사이트 3개를 추천해줍니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !볼 만한 유튜버 추천 ", description=" 배돌이가 괜찮은 유튜버 3명을 추천해줍니다 ", color=0xff0000)
-        await message.channel.send(message.channel, embed=embed)
+        await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !모바일 게임 추천 ", description=" 배돌이가 현재 흥행하는 모바일 게임 3개를 추천해줍니다 (광고 X)", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !자기소개 ", description=" 배돌이가 자기소개를 해줍니다", color=0xff0000)
@@ -43,6 +41,8 @@ async def on_message(message):
         embed = discord.Embed(title=" *명령어 목록은 계속 업데이팅 중 입니다. ", description="  ", color=0xff0000)
         await message.channel.send( embed=embed)
         
+    if message.content.startswith("!안녕"):
+        await message.channel.send("안녕?")      
     if message.content.startswith("!컴퓨터는?"):
         await message.channel.send("컴맹들을 위한 천국, 컴퓨존이지!")
     if message.content.startswith("!커뮤니티 웹사이트 추천"):
