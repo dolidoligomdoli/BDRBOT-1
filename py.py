@@ -130,8 +130,11 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" ", description=" ***재밌는 기능들이 여러분들을 기다리고 있으니 기대하셔도 좋습니다 ^00^ ", color=0x00fefe)
         await message.channel.send(embed=embed)
-
         
+      if message.content.startswith("!덧셈"):
+        await app.message.channel.send(x = int(input("첫번째 숫자를 입력하세요 ="))
+        await app.message.channel.send(y = int(input("두번째 숫자를 입력하세요 ="))
+        await app.message.channel.send(print("X와Y를 합한 결과는",x+y,"입니다."))
 @app.event
 async def my_background_task():
     await app.wait_until_ready()
