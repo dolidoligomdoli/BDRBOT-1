@@ -157,7 +157,7 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         
     if message.content.startswith("!공지"):
-        embed = discord.Embed(title=" 공지사항 ", description="@ ", color=0xffaaaa)
+        embed = discord.Embed(title=" 공지사항 ", description="@everyone ", color=0xffaaaa)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" ", description=" 배틀그라운드 모바일을 멀리하지 마세요... ", color=0xffaaaa)
         await message.channel.send(embed=embed)  
