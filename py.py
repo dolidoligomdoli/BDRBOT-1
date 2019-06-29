@@ -35,9 +35,7 @@ async def my_background_task():
     await app.wait_until_ready()
     channel = server.channel("585087748952817665")
     while not app.is_closed:
-        await app.message.channel.send( "용병님들! 요즘 배틀그라운드 모바일을 너무 멀리하시는 것 같아요 ㅠㅜ")
-        await app.message.channel.send( "공부도 좋지만 가끔은 이러고 노는게 더 정신건강에 좋답니다 ㅎㅎ")
-        await app.message.channel.send( "빨리 접속하세요!!")
+        await app.message.channel.send( "배틀그라운드 모바일을 멀리하지마세요, 공부를 멀리하세요.")
         await asyncio.sleep(5) 
 
         
