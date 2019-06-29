@@ -1,5 +1,5 @@
 #Work with Python 3.7.3
-import asyncio, discord, datetime, logging, random, traceback, time, os
+import asyncio, discord, datetime, logging, random, traceback, time, re, youtube_dl, os
 from discord.ext import commands
 
 app = discord.Client()
@@ -131,6 +131,86 @@ async def on_message(message):
         embed = discord.Embed(title=" ", description=" ***재밌는 기능들이 여러분들을 기다리고 있으니 기대하셔도 좋습니다 ^00^ ", color=0x00fefe)
         await message.channel.send(embed=embed)
         
+   if message.content.startswith("!음악"): 
+      msg = message.content.split(" ")
+      channel = message.author.voice.voice_channel
+      server = message.server
+      voice_client = app.voice_client_in(server)
+    
+   if app.is_voice_connected(server) and not playerlist[server.id].is_playing():
+      await voice_client.disconnect()
+    
+      elif app.is_voice_connected(server) and playerlist[server.id].is_playing(): 
+    player = await voice_client.create_ytdl_player(url,after=lambda:queue(server.id),before_options="-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5")
+    if server.id in que: 
+        que[server.id].append(player)
+    else: 
+        que[server.id] = [player]
+    await app.message.channel.send( embed=discord.Embed(title=":white_check_mark: 추가 완료!",color = 0x2EFEF7))
+    playlist.append(player.title) 
+
+    def queue(id): 
+    if que[id] != []:
+        player = que[id].pop(0)
+        playerlist[id] = player
+        del playlist[0]
+        player.start()
+
+    try:
+        url = msg[1]
+        url1 = re.match('(https?://)?(www\.)?((youtube\.(com))/watch\?v=([-\w]+)|youtu\.be/([-\w]+))', url) 
+        if url1 == None:
+            await app.message.channel.send(embed=discord.Embed(title=":no_entry_sign: url을 제대로 입력해주세요.",color = 0x2EFEF7))
+            return
+    except IndexError:
+        await app.message.channel.send(embed=discord.Embed(title=":no_entry_sign: url을 입력해주세요.",colour = 0x2EFEF7))
+    try:
+    voice_client = await app.join_voice_channel(channel)
+except discord.errors.InvalidArgument:
+    await app.message.channel.send(embed=discord.Embed(title=":no_entry_sign: 음성채널에 접속하고 사용해주세요.",color = 0x2EFEF7))
+    try:
+        player = await voice_client.create_ytdl_player(url,after=lambda:queue(server.id),before_options="-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5")
+        playerlist[server.id] = player
+        playlist.append(player.title)
+        except youtube_dl.utils.DownloadError:
+            await app.message.channel.send(embed=discord.Embed(title=":no_entry_sign: 존재하지 않는 경로입니다.",color = 0x2EFEF7))
+            await voice_client.disconnect()
+            return
+            player.start()
+
+     if message.content == "!종료": 
+        server = message.server
+        voice_client = app.voice_client_in(server)
+ 
+    if voice_client == None: 
+        await app.message.channel.send(embed=discord.Embed(title=":no_entry_sign: 봇이 음성채널에 없어요.",color = 0x2EFEF7))
+        return
+         
+    await app.message.channel.send(embed=discord.Embed(title=":mute: 채널에서 나갑니다.",color = 0x2EFEF7)) 
+    await voice_client.disconnect()
+
+    if message.content == "!스킵":
+        id = message.server.id
+    if not playerlist[id].is_playing(): 
+        await app.message.channel.send(embed=discord.Embed(title=":no_entry_sign: 스킵할 음악이 없어요.",color = 0x2EFEF7))
+        return
+    await app.message.channel.send(embed=discord.Embed(title=":mute: 스킵했어요.",color = 0x2EFEF7))
+    playerlist[id].stop()
+
+    if message.content == "!목록":
+ 
+    if playlist == []:
+        await app.message.channel.send( embed=discord.Embed(title=":no_entry_sign: 재생목록이 없습니다.",colour = 0x2EFEF7))
+        return
+ 
+    playstr = "```css\n[재생목록]\n\n"
+    for i in range(0, len(playlist)):
+        playstr += str(i+1)+" : "+playlist[i]+"\n"
+    await app.message.channel.send( playstr+"```")
+
+
+
+
    
 @app.event
 async def my_background_task():
