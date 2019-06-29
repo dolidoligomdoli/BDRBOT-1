@@ -7,7 +7,7 @@ app = discord.Client()
 
 @app.event
 async def on_ready():
-    print('Logged in as')
+    print('로그인 중 입니다 ..!')
     print(app.user.name)
     print(app.user.id)
     print('===============')
@@ -30,6 +30,20 @@ async def on_member_remove(member):
     fmt = '{0.mention} 님이 서버에서 나가셨습니다.'
     await app.message.channel.send( fmt.format(member, member.server))
 
+@app.event
+async def on_server_join(server):
+    for channel in server.channels:
+        defaultChannel = channel
+         break
+         githubUrl = "https://github.com/bdr-corporation/BDRBOT"
+         if not os.path.exists("./data/mutable/{}".format(server.id)):
+                serverFolders = ["default", "sound"]
+                for folder in serverFolders:
+                    os.makedirs("./data/mutable/{}/{}".format(server.id, folder))
+                    await app.message.channel.send(defaultChannel, "안녕? 난 배돌이라고 해.\n명령어 목록을 보고싶다면 !도와줘 를 사용해봐!".format(githubUrl))
+        else:
+            await app.message.channel.send(defaultChannel, "안녕? 난 배돌이야..!\n다시 봐도 무지 반갑다.\n명령어 목록을 보고싶다면 !도와줘 를 참고하렴!".format(githubUrl))
+            
 @app.event
 async def my_background_task():
     await app.wait_until_ready()
@@ -167,6 +181,8 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" 2019.06.29.토.23:29 ", description=" ", color=0xffaaaa)
         await message.channel.send(embed=embed)
+        
+      
         
 
         
