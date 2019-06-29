@@ -35,7 +35,7 @@ async def on_message(message):
         embed.add_field(title='!PC 게임 추천', description="배돌이가 PC 게임 3개를 선별하여 추천합니다.",  inline=False)  
         embed.add_field(title='!패치노트', description="배돌이봇의 패치노트 입니다",  inline=False) 
         embed.add_field(title='*명령어 목록은 계속 업데이팅 중 입니다.', inline=False) 
-        await app.send_message(message.channel,embed=embed)
+        await message.channel.send(embed=embed)
         
     if message.content.startswith("!컴퓨터는?"):
         await message.channel.send("컴맹들을 위한 천국, 컴퓨존이지!")
