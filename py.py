@@ -1,5 +1,5 @@
 #Work with Python 3.7.3
-import asyncio, discord, re, logging, random, traceback, time, os
+import asyncio, discord, datetime, logging, random, traceback, time, os
 from discord.ext import commands
 
 app = discord.Client()
@@ -156,30 +156,7 @@ async def on_message(message):
         embed = discord.Embed(title=" ", description=" ***재밌는 기능들이 여러분들을 기다리고 있으니 기대하셔도 좋습니다 ^00^ ", color=0x00fefe)
         await message.channel.send(embed=embed)
         
-    if message.content.startswith('!경고부여'): 
-        if message.content[6:].startswith('<@'): 
-            mention_id = re.findall(r'\d+', message.content) 
-            mention_id = mention_id[0]
-            mention_id = str(mention_id)
 
-    if os.path.isfile(message.server.id + " _ " + mention_id + ".txt"): 
-        f = open(message.server.id + " _ " + mention_id + ".txt", 'r') 
-        past_warn = f.read() 
-        f.close() 
-        now_warn = int(past_warn) + 1 
-        now_warn = str(now_warn) 
-        f = open(message.server.id + " _ " + mention_id + ".txt", 'w') 
-        f.write(now_warn) 
-        f.close() 
-      await app.message.channel.send("<@" + message.author.id + "> 님이 <@" + mention_id + "> 님께 경고 1회를 부여했습니다!\n<@" + mention_id + "> 님의 경고는 `" + now_warn + "회` 입니다!") 
-    else:
-      f = open(message.server.id + " _ " + mention_id + ".txt", 'w')
-      f.write("1") 
-      f.close() 
-      await app.message.channel.send( "<@" + message.author.id + "> 님이 <@" + mention_id + "> 님께 경고 1회를 부여했습니다!\n<@" + mention_id + "> 님의 경고는 `1회` 입니다!") # 알림을 보냅니다.
-  else: 
-    await app.message.channel.send( "유저를 언급하여 주세요!")
-        
         
 
 
