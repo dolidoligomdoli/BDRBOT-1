@@ -134,7 +134,7 @@ async def on_message(message):
       if message.content.startswith("!덧셈"):
         await app.message.channel.send(x = int(input("첫번째 숫자를 입력하세요 ="))
         await app.message.channel.send(y = int(input("두번째 숫자를 입력하세요 ="))
-        await app.message.channel.send(print("X와Y를 합한 결과는",x+y,"입니다."))
+        await app.message.channel.send(print(x,"와",y,"를 합한 결과는",x+y,"입니다."))
 @app.event
 async def my_background_task():
     await app.wait_until_ready()
