@@ -21,7 +21,17 @@ async def on_message(message):
         await message.channel.send("안녕?")
     if message.content.startswith("!도와줘"):
         embed = discord.Embed(title=" 명령어 목록 ", description=" 안녕? 난 뉴 배돌이라고 해. 너희들과 대화를 나눠보고 싶어. ", color=0xff0000)
-
+        embed = discord.Embed(title=" !안녕 ", description=" 안녕? 난 뉴 배돌이라고 해. 너희들과 대화를 나눠보고 싶어. ", color=0xff0000)
+        embed = discord.Embed(title=" !도와줘 ", description=" 안녕? 난 뉴 배돌이라고 해. 너희들과 대화를 나눠보고 싶어. ", color=0xff0000)
+        embed = discord.Embed(title=" !컴퓨터는? ", description=" 안녕? 난 뉴 배돌이라고 해. 너희들과 대화를 나눠보고 싶어. ", color=0xff0000)
+        embed = discord.Embed(title=" !커뮤니티 웹사이트 추천 ", description=" 안녕? 난 뉴 배돌이라고 해. 너희들과 대화를 나눠보고 싶어. ", color=0xff0000)
+        embed = discord.Embed(title=" !볼 만한 유튜버 추천 ", description=" 안녕? 난 뉴 배돌이라고 해. 너희들과 대화를 나눠보고 싶어. ", color=0xff0000)
+        embed = discord.Embed(title=" !모바일 게임 추천 ", description=" 안녕? 난 뉴 배돌이라고 해. 너희들과 대화를 나눠보고 싶어. ", color=0xff0000)
+        embed = discord.Embed(title=" !자기소개 ", description=" 안녕? 난 뉴 배돌이라고 해. 너희들과 대화를 나눠보고 싶어. ", color=0xff0000)
+        embed = discord.Embed(title=" !PC 게임 추천 ", description=" 안녕? 난 뉴 배돌이라고 해. 너희들과 대화를 나눠보고 싶어. ", color=0xff0000)
+        embed = discord.Embed(title=" !패치노트 ", description=" 안녕? 난 뉴 배돌이라고 해. 너희들과 대화를 나눠보고 싶어. ", color=0xff0000)
+        embed = discord.Embed(title=" *명령어 목록은 계속 업데이팅 중 입니다. ", description="  ", color=0xff0000)
+        await message.channel.send(message.channel, embed=embed)
         
     if message.content.startswith("!컴퓨터는?"):
         await message.channel.send("컴맹들을 위한 천국, 컴퓨존이지!")
