@@ -63,7 +63,7 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !PC 게임 추천 ", description=" 배돌이가 현재 흥행하는 PC 게임 3개를 추천해줍니다", color=0xff0000)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" !언어 ", description=" 배돌이는 무슨 개발 언어를 기반으로 개발 되어지고 있는지 배돌이가 간략하게 설명해줍니다 ", color=0xff0000)
+        embed = discord.Embed(title=" !언어 ", description=" 배돌이가 무슨 언어를 기반으로 개발되어지고 있는지 알려줍니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !패치노트 ", description=" 배돌이가 자신의 패치노트를 불러옵니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
@@ -170,16 +170,18 @@ async def on_message(message):
         embed = discord.Embed(title=" 2019.06.29.토.23:29 ", description=" ", color=0xffaaaa)
         await message.channel.send(embed=embed)
         
-    if message.content.startswith("!언어"):
-        embed = discord.Embed(title=" 안녕? 난 배돌이야. 지금부터 내가 무슨 언어를 기반으로 개발되고 있는지 알려줄께. ", description=" ", color=0xffaaaa)
+    if message.content.startswith("!기반언어"):
+        embed = discord.Embed(title=" 안녕? 난 배돌이야. ", description=" ", color=0xaaaaff)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title="지금부터 내가 무슨 언어를 기반으로 개발되어지고 있는지 알려줄께. ", description=" ", color=0xaaaaff)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" 우선 나는 PYTHON3으로 개발되고 있어. ", description=" ", color=0xffaaaa)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 하지만, 오직 파이썬으로만 이 모든 아이디어들을 구현하려면 너무 맘에 안 들어.. ", description=" ", color=0xffaaaa)
+        embed = discord.Embed(title=" 하지만, 오직 파이썬으로만 이 모든 아이디어들을 구현하려면 너무 힘들어", description=" ", color=0xaaaaff)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 게다가 구문자체가 가독성이 떨어지기도 하지... ", description=" ", color=0xffaaaa)
+        embed = discord.Embed(title=" 게다가 구문자체가 가독성이 현저하게 떨어지기도 하지... ", description=" ", color=0xaaaaff)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" ㅠㅠ 이래서 파이썬은 걸러야 되;; ", description=" ", color=0xffaaaa)
+        embed = discord.Embed(title=" ㅠㅜ 이럴줄 알았으면 개발자한테 JAVA도 가르쳐볼걸 그랬어 ", description=" ", color=0xaaaaff)
         await message.channel.send(embed=embed)
         
       
