@@ -156,6 +156,18 @@ async def on_message(message):
         embed = discord.Embed(title=" ", description=" ***재밌는 기능들이 여러분들을 기다리고 있으니 기대하셔도 좋습니다 ^00^ ", color=0x00fefe)
         await message.channel.send(embed=embed)
         
+    if message.content.startswith("!공지"):
+        embed = discord.Embed(title=" 공지사항 ", description=" ", color=0xffaaaa)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" ", description=" 배틀그라운드 모바일을 멀리하지 마세요... ", color=0xffaaaa)
+        await message.channel.send(embed=embed)  
+        embed = discord.Embed(title="  ", description=" 다른 게임과 학업을 멀리하셔야 합니다... ", color=0xffaaaa)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title="  ", description=" 당신들은 스트레스 받으면서 살기에는 너무 아깝고 귀한 존재에요... ", color=0xffaaaa)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" 2019.06.29.토.23:26 ", description=" ", color=0xffaaaa)
+        await message.channel.send(embed=embed)
+        
 
         
 
