@@ -18,7 +18,9 @@ async def on_ready():
 async def on_message(message):
 
     if message.content.startswith("!도와줘"):
-        embed = discord.Embed(title=" 명령어 목록 ", description=" 안녕? 난 뉴 배돌이라고 해. 너희들과 대화를 나눠보고 싶어. ", color=0xff0000)
+        embed = discord.Embed(title="  ", description=" *안녕? 난 뉴 배돌이라고 해. 너희들과 대화를 나눠보고 싶어. ", color=0xff0000)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" 명령어 목록 ", description=" ", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !안녕 ", description=" 배돌이가 인사를 해줍니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
