@@ -30,10 +30,10 @@ async def on_member_remove(member):
     fmt = '{0.mention} 님이 서버에서 나가셨습니다.'
     await app.message.channel.send( fmt.format(member, member.server))
 
-
- async def my_background_task():
+@app.event
+async def my_background_task():
     await app.wait_until_ready()
-    channel = discord.Object(id="585087748952817665")
+    channel = member.server.channel("585087748952817665")
     while not app.is_closed:
         await app.message.channel.send( "용병님들! 요즘 배틀그라운드 모바일을 너무 멀리하시는 것 같아요 ㅠㅜ")
         await app.message.channel.send( "공부도 좋지만 가끔은 이러고 노는게 더 정신건강에 좋답니다 ㅎㅎ")
