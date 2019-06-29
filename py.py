@@ -1,5 +1,5 @@
 #Work with Python 3.7.3
-import asyncio, discord, datetime, logging, random, traceback, time, re, youtube_dl, os
+import asyncio, discord, datetime, logging, random, traceback, time, os
 from discord.ext import commands
 
 app = discord.Client()
