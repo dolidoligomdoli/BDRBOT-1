@@ -20,22 +20,8 @@ async def on_message(message):
     if message.content.startswith("!안녕"):
         await message.channel.send("안녕?")
     if message.content.startswith("!도와줘"):
-        embed = discord.Embed(
-            title=learn[1]+ ' 명령어 목록',
-            description=learn[1]+ '안녕? 난 뉴 배돌이라고 해. 너희들과 대화를 나눠보고 싶어.',
-            colour=discord.Colour.gold()
-        )
-        embed.add_field(title='!안녕', description="배돌이가 인사를 합니다", inline=False) 
-        embed.add_field(title='!도와줘', description="배돌이가 명령어 목록창을 보여줍니다", inline=False)  
-        embed.add_field(title='!컴퓨터는?', description="배돌이가 제일 괜찮은 업체를 선별해 드립니다!",  inline=False)  
-        embed.add_field(title='!커뮤니티 웹사이트 추천', description="배돌이가 커뮤니티 웹사이트 3곳을 선별하여 리스트로 보여줍니다",  value=todayMiseaMongi, inline=False)  
-        embed.add_field(title='!볼 만한 유튜버 추천', description="배돌이가 괜찮은 유튜버를 엄격히 선별하여 3명을 추천합니다",  inline=False)  
-        embed.add_field(title='!모바일 게임 추천', description="배돌이가 모바일 게임 3개를 선별하여 추천합니다",  inline=False)  
-        embed.add_field(title='!자기소개', description="배돌이가 자기소개를 해줍니다",  inline=False)  
-        embed.add_field(title='!PC 게임 추천', description="배돌이가 PC 게임 3개를 선별하여 추천합니다.",  inline=False)  
-        embed.add_field(title='!패치노트', description="배돌이봇의 패치노트 입니다",  inline=False) 
-        embed.add_field(title='*명령어 목록은 계속 업데이팅 중 입니다.', inline=False) 
-        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" 명령어 목록 ", description=" 안녕? 난 뉴 배돌이라고 해. 너희들과 대화를 나눠보고 싶어. ", color=0xff0000)
+
         
     if message.content.startswith("!컴퓨터는?"):
         await message.channel.send("컴맹들을 위한 천국, 컴퓨존이지!")
