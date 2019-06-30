@@ -189,11 +189,8 @@ async def on_message(message):
         await message.channel.send(embed=embed)
       
     if message.content.startswith("!생일"):
-        name = input("생일자 이름을 입력하세요! :")
-        await message.channel.send(name, "생일 축하 합니다!")
-        await message.channel.send("사랑하는",name, "생일 축하 합니다!")
         await message.channel.send("생일 축하 합니다!")
-        await message.channel.send(name, "진심으로 한살 더 먹게 된 것을 축하해!!")
+        await message.channel.send("진심으로 한살 더 먹게 된 것을 축하해!!")
         
 
     
