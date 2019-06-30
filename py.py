@@ -179,9 +179,11 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" 하지만, 오직 파이썬으로만 이 모든 아이디어들을 구현하려면 너무 힘들어", description=" ", color=0xaaaaff)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 게다가 구문자체가 가독성이 현저하게 떨어지기도 하지... ", description=" ", color=0xaaaaff)
+        embed = discord.Embed(title=" 구문 자체가 가독성이 심각하게 떨어지거나... ", description=" ", color=0xaaaaff)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" ㅠㅜ 이럴줄 알았으면 개발자한테 JAVA도 가르쳐볼걸 그랬어 ", description=" ", color=0xaaaaff)
+        embed = discord.Embed(title=" 엄청 복잡해져. ", description=" ", color=0xaaaaff)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" 그래도, 파이썬은 엄청 쉽게 코드를 짜기에는 매우 적합한 언어야. ", description=" ", color=0xaaaaff)
         await message.channel.send(embed=embed)
         
       
