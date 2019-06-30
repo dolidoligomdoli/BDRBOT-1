@@ -65,7 +65,7 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !언어 ", description=" 배돌이가 무슨 언어를 기반으로 개발되어지고 있는지 알려줍니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" !생일 ", description=" 배돌이가 생일을 축하해줍니다", color=0xff0000)
+        embed = discord.Embed(title=" !오늘 내 생일이야 ", description=" 배돌이가 생일을 축하해줍니다", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !랜덤주사위 ", description=" 배돌이가 랜덤으로 주사위를 굴려줍니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
@@ -190,9 +190,9 @@ async def on_message(message):
         embed = discord.Embed(title=" 그래도, 파이썬은 엄청 쉽게 코드를 짜기에는 매우 적합한 언어야. ", description=" ", color=0xaaaaff)
         await message.channel.send(embed=embed)
       
-    if message.content.startswith("!생일"):
-        await message.channel.send("생일 축하 합니다!")
-        await message.channel.send("진심으로 한살 더 먹게 된 것을 축하해!!")
+    if message.content.startswith('!오늘 내 생일이야'):
+        msg = "{0.author.mention} 생일 축하해 !!".format(message)
+        await message.channel.send( msg)
         
     if message.content.startswith("!랜덤주사위"):
         randomNum = random.randrange(1, 7) 
@@ -211,30 +211,7 @@ async def on_message(message):
             await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':six: ',color=0xfefe00))
         
 
-    if message.content.startswith('!네이버실검'):
-        url = "https://www.naver.com/"
-        html = urllib.request.urlopen(url)
 
-        bsObj = bs4.BeautifulSoup(html, "html.parser")
-        realTimeSerach1 = bsObj.find('div', {'class': 'ah_roll_area PM_CL_realtimeKeyword_rolling'})
-        realTimeSerach2 = realTimeSerach1.find('ul', {'class': 'ah_l'})
-        realTimeSerach3 = realTimeSerach2.find_all('li')
-
-
-        embed = discord.Embed(
-            title='실시간 검색어',
-            description='',
-            color=discord.Color.green()
-        )
-        for i in range(0,20):
-            realTimeSerach4 = realTimeSerach3[i]
-            realTimeSerach5 = realTimeSerach4.find('span', {'class': 'ah_k'})
-            realTimeSerach = realTimeSerach5.text.replace(' ', '')
-            realURL = 'https://search.naver.com/search.naver?ie=utf8&query='+realTimeSerach
-            print(realTimeSerach)
-            embed.add_field(name=str(i+1)+'위', value='\n'+'[%s](<%s>)' % (realTimeSerach, realURL), inline=False) 
-
-        await ssage.channel.send(embed=embed)
     
 
 
