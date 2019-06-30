@@ -65,6 +65,8 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !언어 ", description=" 배돌이가 무슨 언어를 기반으로 개발되어지고 있는지 알려줍니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" !오늘의운세 ", description=" 배돌이가 오늘의 운세를 알려줍니다 ", color=0xff0000)
+        await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !패치노트 ", description=" 배돌이가 자신의 패치노트를 불러옵니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *명령어 목록은 계속 업데이팅 중 입니다. ", description="  ", color=0xff0000)
