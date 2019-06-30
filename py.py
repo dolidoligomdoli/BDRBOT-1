@@ -43,8 +43,8 @@ async def my_background_task():
 async def on_message(message):
 
     if message.content.startswith("!도와줘"):
-        msg = "*안녕? {0.author.mention} , 난 뉴 배돌이라고 해. 너희들과 대화를 나눠보고 싶어.".format(message)
-        await message.channel.send( msg)
+        embed = discord.Embed(title="  ", description=" 안녕? 난 뉴 배돌이야. 너희들과 대화를 나눠보고 싶어.", color=0xff0000)
+        await message.channel.send(embed=embed)
         embed = discord.Embed(title=" 명령어 목록 ", description=" ", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !안녕 ", description=" 배돌이가 인사를 해줍니다 ", color=0xff0000)
@@ -75,7 +75,9 @@ async def on_message(message):
         await message.channel.send( embed=embed)
         
     if message.content.startswith("!안녕"):
-        await message.channel.send("안녕? ")      
+        msg = "{0.author.mention} 안녕?? 그동안 잘 지냈어?!".format(message)
+        await message.channel.send( msg)
+        
     if message.content.startswith("!컴퓨터는?"):
         embed = discord.Embed(title=" 컴퓨존 ", description=" 일반인들을 위한 천국, 컴퓨존입니다.. ", color=0x0000ff)
         await message.channel.send(embed=embed)
@@ -117,8 +119,8 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         
     if message.content.startswith("!자기소개"):
-        msg = "안녕? {0.author.mention}, 난 뉴 배돌이야. ".format(message)
-        await message.channel.send( msg)
+        embed = discord.Embed(title=" 안녕, 난 뉴 배돌이야.  ", description="", color=0x227799)
+        await message.channel.send(embed=embed)
         embed = discord.Embed(title=" 너희들이 디스코드 서버를 잘 이용할 수 있도록  ", description="", color=0x227799)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" 도와주는 디스코드 PUBG MOBILE GLOBAL 서버 한정 어시스턴트야. ", description="", color=0x227799)
@@ -175,8 +177,8 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         
     if message.content.startswith("!언어"):
-         msg = "안녕? {0.author.mention}, 난 뉴 배돌이야. ".format(message)
-        await message.channel.send( msg)
+        embed = discord.Embed(title="안녕? 난 뉴 배돌이야. ", description=" ", color=0xaaaaff)
+        await message.channel.send(embed=embed)
         embed = discord.Embed(title="지금부터 내가 무슨 언어를 기반으로 개발되어지고 있는지 알려줄께. ", description=" ", color=0xaaaaff)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" 우선 나는 PYTHON3으로 개발되고 있어. ", description=" ", color=0xffaaaa)
