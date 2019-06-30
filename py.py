@@ -67,6 +67,8 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !생일 ", description=" 배돌이가 생일을 축하해줍니다", color=0xff0000)
         await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" !랜덤주사위 ", description=" 배돌이가 랜덤으로 주사위를 굴려줍니다 ", color=0xff0000)
+        await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !패치노트 ", description=" 배돌이가 자신의 패치노트를 불러옵니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *명령어 목록은 계속 업데이팅 중 입니다. ", description="  ", color=0xff0000)
@@ -191,6 +193,22 @@ async def on_message(message):
     if message.content.startswith("!생일"):
         await message.channel.send("생일 축하 합니다!")
         await message.channel.send("진심으로 한살 더 먹게 된 것을 축하해!!")
+        
+    if message.content.startswith("!랜덤주사위"):
+        randomNum = random.randrange(1, 7) 
+        print(randomNum)
+        if randomNum == 1:
+            await message.channel.send( embed=discord.Embed(description=':game_die: '+ ':one:'))
+        if randomNum == 2:
+            await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':two:'))
+        if randomNum ==3:
+            await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':three:'))
+        if randomNum ==4:
+            await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':four:'))
+        if randomNum ==5:
+            await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':five:'))
+        if randomNum ==6:
+            await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':six: '))
         
 
     
