@@ -175,7 +175,7 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title="  ", description=" 당신들은 스트레스 받으면서 살기에는 너무 아깝고 귀한 존재에요... ", color=0xffaaaa)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 2019.06.29.토.23:29 ", description=" ", color=0xffaaaa)
+        embed = discord.Embed(title=" 2019.06.30.일.19:57 ", description=" ", color=0xffaaaa)
         await message.channel.send(embed=embed)
         
     if message.content.startswith("!언어"):
