@@ -198,17 +198,17 @@ async def on_message(message):
         randomNum = random.randrange(1, 7) 
         print(randomNum)
         if randomNum == 1:
-            await message.channel.send( embed=discord.Embed(description=':game_die: '+ ':one:'))
+            await message.channel.send( embed=discord.Embed(description=':game_die: '+ ':one:',color=0xfefe00))
         if randomNum == 2:
-            await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':two:'))
+            await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':two:',color=0xfefe00))
         if randomNum ==3:
-            await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':three:'))
+            await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':three:',color=0xfefe00))
         if randomNum ==4:
-            await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':four:'))
+            await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':four:',color=0xfefe00))
         if randomNum ==5:
-            await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':five:'))
+            await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':five:',color=0xfefe00))
         if randomNum ==6:
-            await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':six: '))
+            await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':six: ',color=0xfefe00))
         
 
     
