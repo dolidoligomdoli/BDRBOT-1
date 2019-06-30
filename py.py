@@ -187,17 +187,8 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" 그래도, 파이썬은 엄청 쉽게 코드를 짜기에는 매우 적합한 언어야. ", description=" ", color=0xaaaaff)
         await message.channel.send(embed=embed)
-        
-   if message.content.startswith("!생일"):
-    def happyBirthday():
-        print("========================================")
-        print("생일 축하합니다!")
-        print("생일 축하합니다!")
-        print("사랑하는 ", name," 생일 축하합니다!")
-        print("생일 축하합니다!")
-        
-        await message.channel.send(name = input(" 생일자 이름을 알려주세요! = "))
-        happyBirthday()
+      
+
     
 
 
