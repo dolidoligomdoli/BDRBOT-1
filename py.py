@@ -69,6 +69,8 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !랜덤주사위 ", description=" 배돌이가 랜덤으로 주사위를 굴려줍니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" !스탑워치 ", description=" 배돌이를 이용해서 이제 어디서든 타이머를 이용해보세요! ", color=0xff0000)
+        await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !패치노트 ", description=" 배돌이가 자신의 패치노트를 불러옵니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *명령어 목록은 계속 업데이팅 중 입니다. ", description="  ", color=0xff0000)
@@ -214,6 +216,26 @@ async def on_message(message):
         if randomNum ==6:
             await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':six: ',color=0xfefe00))
         
+     if message.content.startswith('!스탑워치'):
+
+        Text = ""
+        learn = message.content.split(" ")
+        vrsize = len(learn)  
+        vrsize = int(vrsize)
+        for i in range(1, vrsize):  
+            Text = Text + " " + learn[i]
+
+        secint = int(Text)
+        sec = secint
+
+        for i in range(sec, 0, -1):
+            print(i)
+            await message.channel.send(embed=discord.Embed(description='스탑워치 작동중 : '+str(i)+'초'))
+            time.sleep(1)
+
+        else:
+            print("종료되었습니다")
+            await message.channel.send( embed=discord.Embed(description='스탑워치 종료'))
 
 
     
