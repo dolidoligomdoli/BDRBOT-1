@@ -214,7 +214,7 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         
     if message.content.startswith("!공지"):
-        await message.channel.send(embed=discord.Embed(title="배돌이가 너희에게 보낸 지들이야. 무작위로 확인할 수 있어", color=0xfefefe))
+        await message.channel.send(embed=discord.Embed(title="배돌이가 너희에게 보낸 공지들이야. 무작위로 확인할 수 있어", color=0xfefefe))
         randomNum = random.randrange(1, 4)
         if randomNum==1:
             await message.channel.send("@everyone")
