@@ -199,7 +199,7 @@ async def on_message(message):
         await message.channel.send(embed=embed)
       
     if message.content.startswith('!오늘 내 생일이야'):
-        msg = "{0.author.mention} 생일 축하해 !!".format(message)
+        msg = "{0.author.mention} 생일 축하해 !!".format(message) #그냥 자축 기능. 개발자가 외로운 솔로라 만들어본 기능.
         await message.channel.send( msg)
         
     if message.content.startswith("!랜덤주사위"):
