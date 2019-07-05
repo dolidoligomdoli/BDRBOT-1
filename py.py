@@ -306,7 +306,7 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="헬스장이라도 가봐. 건강은 자기자신이 챙기는거다.?!", color=0xfe00fe))
             
      if message.content.startswith("!오늘의시한편"):
-        randomNum = random.randrange(1, 4)
+        randomNum = random.randrange(1, 3)
          if randomNum==1:
             await message.channel.send(embed=discord.Embed(title="그 꽃", color=0xfefefe))
             await message.channel.send(embed=discord.Embed(title="고은 시인", color=0xfefefe))
@@ -325,17 +325,7 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="===========", color=0xfefefe))
             await message.channel.send(embed=discord.Embed(title="외로울 때", color=0xfefefe))
             await message.channel.send(embed=discord.Embed(title="혼자서 부를 노래가 있다는 것", color=0xfefefe))
-         if randomNum==3:
-            await message.channel.send(embed=discord.Embed(title="풀꽃", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="나태주 시인", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="===========", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="자세히 보아야 ", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="예쁘다 ", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="===========", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="오래보아야 ", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="사랑스럽다 ", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="===========", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="너도 그렇다", color=0xfefefe))
+
 
 accross_token = os.environ["BOT_TOKEN"]
 app.loop.create_task(my_background_task())
