@@ -53,15 +53,15 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !컴퓨터는? ", description=" 배돌이가 믿음직한 컴퓨터 업체를 선별해드립니다 (광고 X) ", color=0xff0000)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" !커뮤니티 웹사이트 추천 ", description=" 배돌이가 괜찮은 커뮤니티 사이트 3개를 추천해줍니다 ", color=0xff0000)
+        embed = discord.Embed(title=" !커뮤니티 웹사이트 추천 ", description=" 배돌이가 괜찮은 커뮤니티 사이트를 추천해줍니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" !볼 만한 유튜버 추천 ", description=" 배돌이가 괜찮은 유튜버 3명을 추천해줍니다 ", color=0xff0000)
+        embed = discord.Embed(title=" !볼 만한 유튜버 추천 ", description=" 배돌이가 괜찮은 유튜버를 추천해줍니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" !모바일 게임 추천 ", description=" 배돌이가 현재 흥행하는 모바일 게임 3개를 추천해줍니다 (광고 X)", color=0xff0000)
+        embed = discord.Embed(title=" !모바일 게임 추천 ", description=" 배돌이가 현재 흥행하는 모바일 게임을 추천해줍니다 (광고 X)", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !자기소개 ", description=" 배돌이가 자기소개를 해줍니다", color=0xff0000)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" !PC 게임 추천 ", description=" 배돌이가 현재 흥행하는 PC 게임 3개를 추천해줍니다", color=0xff0000)
+        embed = discord.Embed(title=" !PC 게임 추천 ", description=" 배돌이가 현재 흥행하는 PC 게임을 추천해줍니다", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !언어 ", description=" 배돌이가 무슨 언어를 기반으로 개발되어지고 있는지 알려줍니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
@@ -91,34 +91,49 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         
     if message.content.startswith("!커뮤니티 웹사이트 추천"):
-        embed = discord.Embed(title=" ***TOP 3*** ", description="  ", color=0x0000ff)
-        await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 1위 ", description=" *네덕 급식들이 판치는 네이버 카페 입니다! ", color=0x0000ff)
-        await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 2위 ", description=" *정신병자들도 엄청 많이 판치면서 정상인들도 엄청 많이 소속되어있는 현존하는 대형 커뮤니티 중 가장 정상적인 범주에 속하는 디시인사이드 입니다. ", color=0x0000ff)
-        await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 3위 ", description=" *대한민국에서 가장 사회적으로 히키코모리 취급을 받는 한남 한녀새끼들이 많이 소속되어있는 대형 게임 커뮤니티, 인벤 입니다! ", color=0x0000ff)
-        await message.channel.send(embed=embed)
+        randomNum = random.randrange(1, 4)
+        if randomNum==1:
+            await message.channel.send(embed=discord.Embed(title="네이버 카페는 어떠니", color=0x0000ff))
+        if randomNum==2:
+            await message.channel.send(embed=discord.Embed(title="디시인사이드는 어때??", color=0x0000ff))
+        if randomNum==3:
+            await message.channel.send(embed=discord.Embed(title="인벤은 해볼 생각 없어?", color=0x0000ff))
 
     if message.content.startswith("!볼 만한 유튜버 추천"):
-        embed = discord.Embed(title=" ***TOP 3*** ", description="  ", color=0x997722)
-        await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 1위 ", description=" *오버워치, 배틀그라운드 스트리머 및 유튜버이신 군림보님 입니다 ", color=0x997722)
-        await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 2위 ", description=" *iT 관련 제품들을 리뷰해주시거나 그 관련 기능들을 자세히 설명및 추천해주시는 유튜버 잇섭님 입니다 ", color=0x997722)
-        await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 3위 ", description=" *오버워치 스트리머 및 유튜브에서 종합게임 스트리머로 전향하신 스트리머 및 유튜버이신 김재원님 입니다 ", color=0x997722)
-        await message.channel.send(embed=embed)
+        randomNum = random.randrange(1, 11)
+        if randomNum==1:
+            await message.channel.send(embed=discord.Embed(title="배틀그라운드, 오버워치 스트리머 및 유튜버이신 군림보님은 어떠니", color=0xff0000))
+        if randomNum==2:
+            await message.channel.send(embed=discord.Embed(title="종합게임 스트리머 및 유튜버이신 김재원님은 괜찮지 않니?", color=0xff0000))
+        if randomNum==3:
+            await message.channel.send(embed=discord.Embed(title="IT 제품들을 리뷰 및 설명해주시는 잇섭님은 볼 생각 들지 않니?", color=0xff0000))
+        if randomNum==4:
+            await message.channel.send(embed=discord.Embed(title="보겸은 어떠니?", color=0xff0000))
+        if randomNum==5:
+            await message.channel.send(embed=discord.Embed(title="배틀그라운드 스트리머 및 유튜버인 김블루는 어때?", color=0xff0000))
+        if randomNum==6:
+            await message.channel.send(embed=discord.Embed(title="하이톤의 목소리가 매력이신 배틀그라운드 스트리머 및 유튜버인 연다는??", color=0xff0000))
+        if randomNum==7:
+            await message.channel.send(embed=discord.Embed(title="항상 재밌는 카톡썰들을 보여주시는 오늘의카톡은??", color=0xff0000))
+        if randomNum==8:
+            await message.channel.send(embed=discord.Embed(title="데이터베이스 오류! 명령어를 다시 입력하세요,,,", color=0xfefe00))
+        if randomNum==9:
+            await message.channel.send(embed=discord.Embed(title="죄송해요,, 이해를 하지 못했어요, 다시 명령어를 입력해주시겠어요...?", color=0xfefe00))
+        if randomNum==10:
+            await message.channel.send(embed=discord.Embed(title="영화 리뷰어이신 홍시네마님은?", color=0xff0000))
         
     if message.content.startswith("!모바일 게임 추천"):
-        embed = discord.Embed(title=" ***TOP 3*** ", description="  ", color=0x997722)
-        await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 1위 ", description=" *전투는 계속된다! 클래시 오브 클랜 입니다 ", color=0x997722)
-        await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 2위 ", description=" *이제 모바일에서도 배틀그라운드!, 배틀그라운드 모바일 입니다 ", color=0x997722)
-        await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 3위 ", description=" *비공식 모바일 리그오브레전드!, 펜타스톰 입니다;; ", color=0x997722)
-        await message.channel.send(embed=embed)
+        randomNum = random.randrange(1, 6)
+        if randomNum==1:
+            await message.channel.send(embed=discord.Embed(title="클래시 오브 클랜은 어떠니?", color=0x0000ff))
+        if randomNum==2:
+            await message.channel.send(embed=discord.Embed(title="배틀그라운드 모바일은 어때??", color=0x0000ff))
+        if randomNum==3:
+            await message.channel.send(embed=discord.Embed(title="펜타스톰은 해볼 생각 없어?", color=0x0000ff))
+        if randomNum==4:
+            await message.channel.send(embed=discord.Embed(title="마인크래프트 해보지 그래? ㅋㅋㅋ", color=0x0000ff))
+        if randomNum==5:
+            await message.channel.send(embed=discord.Embed(title="마블 퓨처 파이트 해봐, 추억의 게임이잖니", color=0x0000ff))
         
     if message.content.startswith("!자기소개"):
         embed = discord.Embed(title=" 안녕, 난 뉴 배돌이야.  ", description="", color=0x227799)
@@ -137,14 +152,25 @@ async def on_message(message):
         await message.channel.send( msg)
         
     if message.content.startswith("!PC 게임 추천"):
-        embed = discord.Embed(title=" ***TOP 3*** ", description="  ", color=0x997722)
-        await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 1위 ", description=" *새로운 영웅은 언제나 환영이야~, 오버워치 입니다.. ", color=0x997722)
-        await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 2위 ", description=" *이겼닭! 오늘 저녁은 치킨이닭!, 배틀그라운드 입니다.. ", color=0x997722)
-        await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 3위 ", description=" *소환사의 협곡에 오신 것을 환영합니다. , 리그 오브 레전드 입니다.. ", color=0x997722)
-        await message.channel.send(embed=embed)
+        randomNum = random.randrange(1, 10)
+        if randomNum==1:
+            await message.channel.send(embed=discord.Embed(title="배틀그라운드는 어떠니", color=0x00ff00))
+        if randomNum==2:
+            await message.channel.send(embed=discord.Embed(title="오버워치는 어때??", color=0x00ff00))
+        if randomNum==3:
+            await message.channel.send(embed=discord.Embed(title="리그 오브 레전드는 해볼 생각 없어?", color=0x00ff00))
+        if randomNum==4:
+            await message.channel.send(embed=discord.Embed(title="월드 오브 탱크는?", color=0x00ff00))
+        if randomNum==5:
+            await message.channel.send(embed=discord.Embed(title="히어로즈 오브 더 스톰은 해볼 생각 없어?", color=0x00ff00))
+        if randomNum==6:
+            await message.channel.send(embed=discord.Embed(title="서든어택은???", color=0x00ff00))
+        if randomNum==7:
+            await message.channel.send(embed=discord.Embed(title="마인크래프트는 어떠니?", color=0x00ff00))
+        if randomNum==8:
+            await message.channel.send(embed=discord.Embed(title="피파 온라인 4는 꽤 재밌어보이던데.", color=0x00ff00))
+        if randomNum==9:
+            await message.channel.send(embed=discord.Embed(title="GTA5도 한번 시작해봐, 꽤 재밌어.", color=0x00ff00))
 
     if message.content.startswith("!패치노트"):
         embed = discord.Embed(title="*2018년 12월 ", description=" 배돌이 프로젝트 구상 및 개발 시작! ", color=0x00fefe)
@@ -166,6 +192,8 @@ async def on_message(message):
         embed = discord.Embed(title=" *0.0.7 ", description=" 2019년 06월 30일 일요일, 생일 축하 기능과 랜덤주사위 기능 업데이트!", color=0x00fefe)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *0.0.8 ", description=" 2019년 07월 05일 금요일, 이제 배돌이에게 조언을 받아보실 수 있습니다. 지금 당장 체험해보세요.", color=0x00fefe)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" *0.0.9 ", description=" 2019년 07월 05일 금요일, 일부 Ui 수정!", color=0x00fefe)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" ", description=" ***패치노트는 계속 업데이트 할 예정입니다 ^00^ ", color=0x00fefe)
         await message.channel.send(embed=embed)
