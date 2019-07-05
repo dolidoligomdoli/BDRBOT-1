@@ -212,6 +212,8 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *0.1.0 ", description=" 2019년 07월 05일 금요일, !내쪽지 기능 업데이트", color=0x00fefe)
         await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" *0.1.1 ", description=" 2019년 07월 05일 금요일, 이제 배돌이가 무작위로 시 한편을 읊어줍니다", color=0x00fefe)
+        await message.channel.send(embed=embed)
         embed = discord.Embed(title=" ", description=" ***패치노트는 계속 업데이트 할 예정입니다 ^00^ ", color=0x00fefe)
         await message.channel.send(embed=embed)
         
