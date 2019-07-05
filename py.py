@@ -124,13 +124,15 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" 너희들이 디스코드 서버를 잘 이용할 수 있도록  ", description="", color=0x227799)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 도와주는 디스코드 PUBG MOBILE GLOBAL 서버 한정 어시스턴트야. ", description="", color=0x227799)
+        embed = discord.Embed(title=" 도와주는 디스코드 서버 한정 어시스턴트야. ", description="", color=0x227799)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title="그런데 말이야... ", description="", color=0x997722)
+        embed = discord.Embed(title=" 내 이름의 뜻은 ", description="", color=0x227799)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title="난 나에 대해서 말하는 것을 별로 좋아하지 않아.. ", description="", color=0x227799)
+        embed = discord.Embed(title=" "제 2의 배돌이 프로젝트"의 줄인말이야 ", description="", color=0x227799)
         await message.channel.send(embed=embed)
-        msg = "이정도면 됐지? {0.author.mention}??? ".format(message)
+        embed = discord.Embed(title=" "(제 2의) 배돌이 프로젝트"는 전세계 배틀그라운드, 배틀그라운드 모바일 유저들을 위한 프로젝트 였지, 지금은 아니지만. ", description="", color=0x227799)
+        await message.channel.send(embed=embed)
+        msg = "널 또 보길 바랄께, 나중에 보자. {0.author.mention}??? ".format(message)
         await message.channel.send( msg)
         
     if message.content.startswith("!PC 게임 추천"):
@@ -184,15 +186,16 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title="지금부터 내가 무슨 언어를 기반으로 개발되어지고 있는지 알려줄께. ", description=" ", color=0xaaaaff)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 우선 나는 PYTHON3으로 개발되고 있어. ", description=" ", color=0xffaaaa)
+        embed = discord.Embed(title=" 우선 나는 PYTHON3으로 개발되고 있어. ", description=" ", color=0xaaaaff)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 하지만, 오직 파이썬으로만 이 모든 아이디어들을 구현하려면 너무 힘들어", description=" ", color=0xaaaaff)
+        embed = discord.Embed(title=" 기본적인 기능들을 구현하기에는 적합한 언어지. 우선 내 개발자는 전문가가 아니거든.", description=" ", color=0xaaaaff)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 구문 자체가 가독성이 심각하게 떨어지거나... ", description=" ", color=0xaaaaff)
+        embed = discord.Embed(title=" PYTHON 은 1991년 프로그래머인 귀도 반 로섬(Guido van Rossum)이 발표한 고급 프로그래밍 언어로, 
+                              플랫폼 독립적이며 인터프리터식, 객체지향적, 동적 타이핑(dynamically typed) 대화형 언어로 많이 알려져 있어.", description=" ", color=0xaaaaff)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 엄청 복잡해져. ", description=" ", color=0xaaaaff)
+        embed = discord.Embed(title=" 특히, 파이썬이라는 이름은 귀도가 좋아하는 코미디 〈Monty Python's Flying Circus〉에서 따온 것이야.", description=" ", color=0xaaaaff)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 그래도, 파이썬은 엄청 쉽게 코드를 짜기에는 매우 적합한 언어야. ", description=" ", color=0xaaaaff)
+        embed = discord.Embed(title=" 재미있는 사실은 1989년 크리스마스 주에, 연구실이 닫혀있어서 그저 심심해서 만든 작품이 파이썬이라는게 .. ", description=" ", color=0xaaaaff)
         await message.channel.send(embed=embed)
       
     if message.content.startswith('!오늘 내 생일이야'):
@@ -215,58 +218,7 @@ async def on_message(message):
         if randomNum ==6:
             await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':six: ',color=0xfefe00))
         
-   if message.content.startswith('!실영순'):
-        # http://ticket2.movie.daum.net/movie/movieranklist.aspx
-        i1 = 0
-        embed = discord.Embed(
-            title = "실시간영화순위",
-            description = "실시간 영화 순위 입니다..",
-            color= discord.Color.red()
-        )
-        hdr = {'User-Agent': 'Mozilla/5.0'}
-        url = 'http://ticket2.movie.daum.net/movie/movieranklist.aspx'
-        print(url)
-        req = Request(url, headers=hdr)
-        html = urllib.request.urlopen(req)
-        bsObj = bs4.BeautifulSoup(html, "html.parser")
-        moviechartBase = bsObj.find('div', {'class': 'main_detail'})
-        moviechart1 = moviechartBase.find('ul', {'class': 'list_boxthumb'})
-        moviechart2 = moviechart1.find_all('li')
 
-        for i in range(0, 20):
-            i1 = i1+1
-            stri1 = str(i1) 
-            print()
-            print(i)
-            print()
-            moviechartLi1 = moviechart2[i]  
-            moviechartLi1Div = moviechartLi1.find('div', {'class': 'desc_boxthumb'}) 
-            moviechartLi1MovieName1 = moviechartLi1Div.find('strong', {'class': 'tit_join'})
-            moviechartLi1MovieName = moviechartLi1MovieName1.text.strip() 
-            print(moviechartLi1MovieName)
-
-            moviechartLi1Ratting1 = moviechartLi1Div.find('div', {'class': 'raking_grade'})
-            moviechartLi1Ratting2 = moviechartLi1Ratting1.find('em', {'class': 'emph_grade'})
-            moviechartLi1Ratting = moviechartLi1Ratting2.text.strip()  
-            print(moviechartLi1Ratting)
-
-            moviechartLi1openDay1 = moviechartLi1Div.find('dl', {'class': 'list_state'})
-            moviechartLi1openDay2 = moviechartLi1openDay1.find_all('dd') 
-            moviechartLi1openDay3 = moviechartLi1openDay2[0]
-            moviechartLi1Yerating1 = moviechartLi1openDay2[1]
-            moviechartLi1openDay = moviechartLi1openDay3.text.strip()  
-            print(moviechartLi1openDay)
-            moviechartLi1Yerating = moviechartLi1Yerating1.text.strip()  
-            print(moviechartLi1Yerating)  
-            print()
-            embed = discord.Embed(title=" ---------------랭킹'+stri1+'위--------------- ", 
-                                  description=" '\n영화제목 : '+moviechartLi1MovieName+
-                                  '\n영화평점 : '+moviechartLi1Ratting+'점'+
-                                  '\n개봉날짜 : '+moviechartLi1openDay+
-                                  '\n예매율,랭킹변동 : '+moviechartLi1Yerating,  ", color=0xff0000)
-
-
-        await message.channel.send(embed=embed)
 
     
 
@@ -277,7 +229,7 @@ async def on_message(message):
       
         
 
-        
+       
 
 
 accross_token = os.environ["BOT_TOKEN"]
