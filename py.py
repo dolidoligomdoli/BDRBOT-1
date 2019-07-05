@@ -69,6 +69,8 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !랜덤주사위 ", description=" 배돌이가 랜덤으로 주사위를 굴려줍니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" !오늘뭐할까 ", description=" 배돌이에게 오늘 하루 할 일을 정해달라고 물어보세요!", color=0xff0000)
+        await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !패치노트 ", description=" 배돌이가 자신의 패치노트를 불러옵니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *명령어 목록은 계속 업데이팅 중 입니다. ", description="  ", color=0xff0000)
@@ -218,7 +220,14 @@ async def on_message(message):
         if randomNum ==6:
             await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':six: ',color=0xfefe00))
         
-                         
+    if message.content.startswith('!'):
+        randomNum = random.randrange(1, 3)
+        if randomNum==1:
+            await message.channel.send(embed=discord.Embed(title="", color=0xfe00fe))
+        else:
+            await message.channel.send(embed=discord.Embed(title="자러갑시다....", color=0xfe00fe))
+    
+   
 
 accross_token = os.environ["BOT_TOKEN"]
 app.loop.create_task(my_background_task())
