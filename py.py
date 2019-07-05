@@ -217,17 +217,17 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title="배돌이가 너희에게 보낸 쪽지들이야. 무작위로 확인할 수 있어", color=0xfefefe))
         randomNum = random.randrange(1, 4)
         if randomNum==1:
-            await message.channel.send(embed=discord.Embed(title="@everyone .!", color=0xffaaaa))
+            await message.channel.send("@everyone")
             await message.channel.send(embed=discord.Embed(title="배틀그라운드 모바일을 접속해야되.", color=0xffaaaa))
             await message.channel.send(embed=discord.Embed(title="어차피 삶은 영원하지 않아.", color=0xffaaaa))
             await message.channel.send(embed=discord.Embed(title="지금 당장 접속하지 않으면", color=0xffaaaa))
             await message.channel.send(embed=discord.Embed(title="큰코다칠줄 알아라.", color=0xffaaaa))
         if randomNum==2:
-            await message.channel.send(embed=discord.Embed(title="@everyone .!", color=0xaaaaff))
+            await message.channel.send("@everyone")
             await message.channel.send(embed=discord.Embed(title="가서 영화라도 한편 보고 와.", color=0xaaaaff))
             await message.channel.send(embed=discord.Embed(title="가끔은 이런 일탈도 나쁘지 않지.", color=0xaaaaff))
         if randomNum==3:
-            await message.channel.send(embed=discord.Embed(title="@everyone .!", color=0xaaffaa))
+            await message.channel.send("@everyone")
             await message.channel.send(embed=discord.Embed(title="오늘 하루는 잘 보냈니. 죽은건 아니지?", color=0xaaffaa))
         
     if message.content.startswith("!언어"):
