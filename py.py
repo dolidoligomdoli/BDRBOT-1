@@ -1,7 +1,6 @@
 #Work with Python 3.7.3
-import asyncio, discord, datetime, logging, random, traceback, time, os, urllib, urllib.request, bs4
+import asyncio, discord, datetime, logging, random, traceback, time, os
 from discord.ext import commands
-from urllib.request import urlopen, Request
 
 app = discord.Client()
 
