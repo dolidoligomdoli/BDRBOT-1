@@ -221,7 +221,7 @@ async def on_message(message):
             await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':six: ',color=0xfefe00))
         
     if message.content.startswith('!오늘뭐할까'):
-        randomNum = random.randrange(1, 11)
+        randomNum = random.randrange(1, 16)
         if randomNum==1:
             await message.channel.send(embed=discord.Embed(title="그냥 아무것도 하지않는게 더 났지 않을까?", color=0xfe00fe))
         if randomNum==2:
@@ -242,6 +242,17 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="정말 한가하다.. 너 시간 많나보다? 기억해. 너는 한낱 인간이고, 삶은 영원하지 않다고.", color=0xfe00fe))
         if randomNum==10:
             await message.channel.send(embed=discord.Embed(title="솔직히 말해봐. 너 지금 모태솔로지?", color=0xfe00fe))
+        if randomNum==11:
+            await message.channel.send(embed=discord.Embed(title="문화생활이라도 즐겨봐. 너 그러다 병나. 여기다 물어볼 정도면 넌 심각해", color=0xfe00fe))
+        if randomNum==12:
+            await message.channel.send(embed=discord.Embed(title="넌 좋아하는 취미가 뭐니? 좋아하는 취미를 즐기면서 지금 이 시간을 즐겨.", color=0xfe00fe))
+        if randomNum==13:
+            await message.channel.send(embed=discord.Embed(title="너 정말 모태솔로 아닌거 확실해? 커플들은 보통 여기서 물어보지 않는단다;;", color=0xfe00fe))
+        if randomNum==14:
+            await message.channel.send(embed=discord.Embed(title="데이터베이스 오류! 치명적인 오류 발생!! 다시 명령어를 입력하세요...", color=0xff0000))
+        if randomNum==15:
+            await message.channel.send(embed=discord.Embed(title="헬스장이라도 가봐. 건강은 자기자신이 챙기는거다.?!", color=0xfe00fe))
+            
     
    
 
