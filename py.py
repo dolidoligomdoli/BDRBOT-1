@@ -1,6 +1,7 @@
 #Work with Python 3.7.3
-import asyncio, discord, datetime, logging, random, traceback, time, os
+import asyncio, discord, datetime, logging, random, traceback, time, os, urllib, urllib.request, bs4
 from discord.ext import commands
+from urllib.request import urlopen, Request
 
 app = discord.Client()
 
@@ -214,6 +215,58 @@ async def on_message(message):
         if randomNum ==6:
             await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':six: ',color=0xfefe00))
         
+   if message.content.startswith('!실영순'):
+        # http://ticket2.movie.daum.net/movie/movieranklist.aspx
+        i1 = 0
+        embed = discord.Embed(
+            title = "실시간영화순위",
+            description = "실시간 영화 순위 입니다..",
+            color= discord.Color.red()
+        )
+        hdr = {'User-Agent': 'Mozilla/5.0'}
+        url = 'http://ticket2.movie.daum.net/movie/movieranklist.aspx'
+        print(url)
+        req = Request(url, headers=hdr)
+        html = urllib.request.urlopen(req)
+        bsObj = bs4.BeautifulSoup(html, "html.parser")
+        moviechartBase = bsObj.find('div', {'class': 'main_detail'})
+        moviechart1 = moviechartBase.find('ul', {'class': 'list_boxthumb'})
+        moviechart2 = moviechart1.find_all('li')
+
+        for i in range(0, 20):
+            i1 = i1+1
+            stri1 = str(i1) 
+            print()
+            print(i)
+            print()
+            moviechartLi1 = moviechart2[i]  
+            moviechartLi1Div = moviechartLi1.find('div', {'class': 'desc_boxthumb'}) 
+            moviechartLi1MovieName1 = moviechartLi1Div.find('strong', {'class': 'tit_join'})
+            moviechartLi1MovieName = moviechartLi1MovieName1.text.strip() 
+            print(moviechartLi1MovieName)
+
+            moviechartLi1Ratting1 = moviechartLi1Div.find('div', {'class': 'raking_grade'})
+            moviechartLi1Ratting2 = moviechartLi1Ratting1.find('em', {'class': 'emph_grade'})
+            moviechartLi1Ratting = moviechartLi1Ratting2.text.strip()  
+            print(moviechartLi1Ratting)
+
+            moviechartLi1openDay1 = moviechartLi1Div.find('dl', {'class': 'list_state'})
+            moviechartLi1openDay2 = moviechartLi1openDay1.find_all('dd') 
+            moviechartLi1openDay3 = moviechartLi1openDay2[0]
+            moviechartLi1Yerating1 = moviechartLi1openDay2[1]
+            moviechartLi1openDay = moviechartLi1openDay3.text.strip()  
+            print(moviechartLi1openDay)
+            moviechartLi1Yerating = moviechartLi1Yerating1.text.strip()  
+            print(moviechartLi1Yerating)  
+            print()
+            embed = discord.Embed(title=" ---------------랭킹'+stri1+'위--------------- ", 
+                                  description=" '\n영화제목 : '+moviechartLi1MovieName+
+                                  '\n영화평점 : '+moviechartLi1Ratting+'점'+
+                                  '\n개봉날짜 : '+moviechartLi1openDay+
+                                  '\n예매율,랭킹변동 : '+moviechartLi1Yerating,  ", color=0xff0000)
+
+
+        await message.channel.send(embed=embed)
 
     
 
