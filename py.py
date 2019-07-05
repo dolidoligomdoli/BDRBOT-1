@@ -75,7 +75,7 @@ async def on_message(message):
         await message.channel.send( embed=embed)
         
     if message.content.startswith("!안녕"):
-        msg = "{0.author.mention} 안녕?? 그동안 잘 지냈어?!".format(message)
+        msg = "{0.author.mention} 안녕?? 반가워, 그동안 잘 지냈니.".format(message)
         await message.channel.send( msg)
         
     if message.content.startswith("!컴퓨터는?"):
@@ -127,11 +127,11 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" 내 이름의 뜻은 ", description="", color=0x227799)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" "제 2의 배돌이 프로젝트"의 줄인말이야 ", description="", color=0x227799)
+        embed = discord.Embed(title=" [제 2의 배돌이 프로젝트] 의 줄인말이야 ", description="", color=0x227799)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" "(제 2의) 배돌이 프로젝트"는 전세계 배틀그라운드, 배틀그라운드 모바일 유저들을 위한 프로젝트 였지, 지금은 아니지만. ", description="", color=0x227799)
+        embed = discord.Embed(title=" [ (제 2의) 배돌이 프로젝트] 는 전세계 배틀그라운드, 배틀그라운드 모바일 유저들을 위한 프로젝트 였지, 지금은 아니지만. ", description="", color=0x227799)
         await message.channel.send(embed=embed)
-        msg = "널 또 보길 바랄께, 나중에 보자. {0.author.mention}??? ".format(message)
+        msg = "널 또 보길 바랄께, 나중에 보자. {0.author.mention} ".format(message)
         await message.channel.send( msg)
         
     if message.content.startswith("!PC 게임 추천"):
@@ -189,8 +189,9 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" 기본적인 기능들을 구현하기에는 적합한 언어지. 우선 내 개발자는 전문가가 아니거든.", description=" ", color=0xaaaaff)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" PYTHON 은 1991년 프로그래머인 귀도 반 로섬(Guido van Rossum)이 발표한 고급 프로그래밍 언어로, 
-                              플랫폼 독립적이며 인터프리터식, 객체지향적, 동적 타이핑(dynamically typed) 대화형 언어로 많이 알려져 있어.", description=" ", color=0xaaaaff)
+        embed = discord.Embed(title=" PYTHON 은 1991년 프로그래머인 귀도 반 로섬(Guido van Rossum)이 발표한 고급 프로그래밍 언어로, ", description=" ", color=0xaaaaff)
+        await message.channel.send(embed=embed) 
+        embed = discord.Embed(title=" 플랫폼 독립적이며 인터프리터식, 객체지향적, 동적 타이핑(dynamically typed) 대화형 언어로 많이 알려져 있어.", description=" ", color=0xaaaaff)                      
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" 특히, 파이썬이라는 이름은 귀도가 좋아하는 코미디 〈Monty Python's Flying Circus〉에서 따온 것이야.", description=" ", color=0xaaaaff)
         await message.channel.send(embed=embed)
@@ -217,47 +218,7 @@ async def on_message(message):
         if randomNum ==6:
             await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':six: ',color=0xfefe00))
         
-
-    if message.content.startswith("!테스트"):
-        channel = message.channel
-        embed = discord.Embed(
-            title = '안녕? 난 뉴 배돌이야. 너희들과 대화를 나눠보고 싶어.',
-            description = '',
-            color = discord.Color.red()
-        )
-
-        dtime = datetime.datetime.now()
-        embed.set_footer(text=str(dtime.year)+"년 "
-                         +str(dtime.month)+"월 "
-                         +str(dtime.day)+"일 "
-                         +str(dtime.hour)+"시 "
-                         +str(dtime.minute)+"분 "
-                         +str(dtime.second)+"초")             
-        embed.add_field(name = '!안녕', value = '배돌이가 인사를 해줍니다 ',inline = False)
-        embed.add_field(name='!컴퓨터는?', value='배돌이가 검증된 정보통으로 괜찮은 업체를 소개합니다 ', inline=False)
-        embed.add_field(name='!커뮤니티 웹사이트 추천', value='배돌이가 괜찮은 커뮤니티 사이트 3개를 추천해줍니다 ', inline=False)
-        embed.add_field(name='!볼 만한 유튜버 추천', value='배돌이가 괜찮은 유튜버 3명을 추천해줍니다 ', inline=False)
-        embed.add_field(name='!모바일 게임 추천 ', value='배돌이가 현재 흥행하는 모바일 게임 3개를 추천해줍니다 (광고 X)', inline=False)
-        embed.add_field(name='!PC 게임 추천 ', value='배돌이가 현재 흥행하는 PC 게임 3개를 추천해줍니다 (광고 X)', inline=False)                     
-        embed.add_field(name='!자기소개', value='배돌이가 자기소개를 해줍니다', inline=False)
-        embed.add_field(name='!언어', value='배돌이가 무슨 언어를 기반으로 개발되어지고 있는지 알려줍니다', inline=False)
-        embed.add_field(name='!오늘 내 생일이야', value='배돌이가 생일을 축하해줍니다', inline=False)
-        embed.add_field(name='!랜덤주사위', value='배돌이가 랜덤으로 주사위를 굴려줍니다', inline=False)
-        embed.add_field(name='!패치노트', value='배돌이가 자신의 패치노트를 불러옵니다', inline=False)
-
-        await message.channel.send(embed=embed)                              
-
-    
-
-
-        
-       
-        
-      
-        
-
-       
-
+                         
 
 accross_token = os.environ["BOT_TOKEN"]
 app.loop.create_task(my_background_task())
