@@ -165,9 +165,9 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *0.0.7 ", description=" 2019년 06월 30일 일요일, 생일 축하 기능과 랜덤주사위 기능 업데이트!", color=0x00fefe)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" ", description=" ***패치노트는 계속 업데이트 할 예정입니다 ^00^ ", color=0x00fefe)
+        embed = discord.Embed(title=" *0.0.7 ", description=" 2019년 07월 05일 금요일, 일부 Ui 수정 및 !오늘뭐할까 기능 업데이트!", color=0x00fefe)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" ", description=" ***재밌는 기능들이 여러분들을 기다리고 있으니 기대하셔도 좋습니다 ^00^ ", color=0x00fefe)
+        embed = discord.Embed(title=" ", description=" ***패치노트는 계속 업데이트 할 예정입니다 ^00^ ", color=0x00fefe)
         await message.channel.send(embed=embed)
         
     if message.content.startswith("!공지"):
@@ -240,7 +240,7 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="하나님한테 기도드려봐. 해결될거야.", color=0xfe00fe))
         if randomNum==9:
             await message.channel.send(embed=discord.Embed(title="정말 한가하다.. 너 시간 많나보다? 기억해. 너는 한낱 인간이고, 삶은 영원하지 않다고.", color=0xfe00fe))
-        else:
+        if randomNum==10:
             await message.channel.send(embed=discord.Embed(title="솔직히 말해봐. 너 지금 모태솔로지?", color=0xfe00fe))
     
    
