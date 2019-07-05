@@ -24,7 +24,7 @@ async def on_member_join(member):
     await app.message.channel.send(member, "내가 알려줄 수 있는 범위 안에서 최선을 다해 알려줄테니까.")
     await app.message.channel.send(member, "아 참! 우리 서버에 들어온 것을 환영해~")
  
-@app.even
+@app.event
 async def on_member_remove(member):
     channel = member.server.get_channel("585087748952817665")
     fmt = '{0.mention} 님이 서버를 떠나셨습니다'
