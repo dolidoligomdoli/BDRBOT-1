@@ -220,12 +220,28 @@ async def on_message(message):
         if randomNum ==6:
             await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':six: ',color=0xfefe00))
         
-    if message.content.startswith('!'):
-        randomNum = random.randrange(1, 3)
+    if message.content.startswith('!오늘뭐할까'):
+        randomNum = random.randrange(1, 11)
         if randomNum==1:
-            await message.channel.send(embed=discord.Embed(title="", color=0xfe00fe))
+            await message.channel.send(embed=discord.Embed(title="그냥 아무것도 하지않는게 더 났지 않을까?", color=0xfe00fe))
+        if randomNum==2:
+            await message.channel.send(embed=discord.Embed(title="그냥 잠이나 충분히 자는게 더 나을듯 해", color=0xfe00fe))
+        if randomNum==3:
+            await message.channel.send(embed=discord.Embed(title="공부하는 것도 나쁘지 않을거야", color=0xfe00fe))
+        if randomNum==4:
+            await message.channel.send(embed=discord.Embed(title="영화 한편보는 건 어때?", color=0xfe00fe))
+        if randomNum==5:
+            await message.channel.send(embed=discord.Embed(title="신책하는 것도 나쁘지 않을텐데, 가벼운 산책은 머리를 맑게 해줘.", color=0xfe00fe))
+        if randomNum==6:
+            await message.channel.send(embed=discord.Embed(title="미쳤니? 이 날씨에?! 그냥 집에서 게임이나 하는게 현명한 선택이야.", color=0xfe00fe))
+        if randomNum==7:
+            await message.channel.send(embed=discord.Embed(title="부모님한테 효도라도 해볼 생각은 없니? 안마라도 해드려.", color=0xfe00fe))
+        if randomNum==8:
+            await message.channel.send(embed=discord.Embed(title="하나님한테 기도드려봐. 해결될거야.", color=0xfe00fe))
+        if randomNum==9:
+            await message.channel.send(embed=discord.Embed(title="정말 한가하다.. 너 시간 많나보다? 기억해. 너는 한낱 인간이고, 삶은 영원하지 않다고.", color=0xfe00fe))
         else:
-            await message.channel.send(embed=discord.Embed(title="자러갑시다....", color=0xfe00fe))
+            await message.channel.send(embed=discord.Embed(title="솔직히 말해봐. 너 지금 모태솔로지?", color=0xfe00fe))
     
    
 
