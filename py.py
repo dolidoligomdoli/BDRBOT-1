@@ -215,7 +215,7 @@ async def on_message(message):
         
     if message.content.startswith("!공지"):
         await message.channel.send(embed=discord.Embed(title="배돌이가 너희에게 보낸 지들이야. 무작위로 확인할 수 있어", color=0xfefefe))
-        randomNum = random.randrange(1, 5)
+        randomNum = random.randrange(1, 4)
         if randomNum==1:
             await message.channel.send("@everyone")
             await message.channel.send(embed=discord.Embed(title="배틀그라운드 모바일을 접속해야되.", color=0xffaaaa))
@@ -229,9 +229,6 @@ async def on_message(message):
         if randomNum==3:
             await message.channel.send("@everyone")
             await message.channel.send(embed=discord.Embed(title="오늘 하루는 잘 보냈니. 죽은건 아니지?", color=0xaaffaa))
-        if randomNum==4:
-            await message.channel.send("@everyone")
-            await message.channel.send(embed=discord.Embed(title="여기 아무도 없니?", color=0xafafaf))
         
     if message.content.startswith("!언어"):
         embed = discord.Embed(title="안녕? 난 뉴 배돌이야. ", description=" ", color=0xaaaaff)
