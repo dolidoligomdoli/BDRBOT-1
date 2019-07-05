@@ -71,6 +71,8 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !오늘뭐할까 ", description=" 배돌이에게 오늘 하루 할 일을 정해달라고 물어보세요!", color=0xff0000)
         await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" !배돌이의쪽지들 ", description=" 배돌이가 그동안 너에게 쪽지를 보내왔다는 사실을 알고 있니? ", color=0xff0000)
+        await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !패치노트 ", description=" 배돌이가 자신의 패치노트를 불러옵니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *명령어 목록은 계속 업데이팅 중 입니다. ", description="  ", color=0xff0000)
@@ -206,20 +208,31 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *0.0.9 ", description=" 2019년 07월 05일 금요일, 일부 Ui 수정!", color=0x00fefe)
         await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" *0.1.0 ", description=" 2019년 07월 05일 금요일, 이제 배돌이가 너희에게 하고싶은 말들을 보내줄 수 있단다!", color=0x00fefe)
+        await message.channel.send(embed=embed)
         embed = discord.Embed(title=" ", description=" ***패치노트는 계속 업데이트 할 예정입니다 ^00^ ", color=0x00fefe)
         await message.channel.send(embed=embed)
         
-    if message.content.startswith("!공지"):
-        embed = discord.Embed(title=" 공지사항 ", description=" ", color=0xffaaaa)
-        await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" ", description=" 배틀그라운드 모바일을 멀리하지 마세요... ", color=0xffaaaa)
-        await message.channel.send(embed=embed)  
-        embed = discord.Embed(title="  ", description=" 다른 게임과 학업을 멀리하셔야 합니다... ", color=0xffaaaa)
-        await message.channel.send(embed=embed)
-        embed = discord.Embed(title="  ", description=" 당신들은 스트레스 받으면서 살기에는 너무 아깝고 귀한 존재에요... ", color=0xffaaaa)
-        await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 2019.06.30.일.19:57 ", description=" ", color=0xffaaaa)
-        await message.channel.send(embed=embed)
+    if message.content.startswith("!배돌이의쪽지들"):
+        msg = "안녕? {0.author.mention} , 너희에게 보낸 쪽지들이야. 무작위로 확인할 수 있단다.".format(message) 
+        await message.channel.send( msg, color=0xfefefe)
+        randomNum = random.randrange(1, 4)
+        if randomNum==1:
+            await message.channel.send(embed=discord.Embed(title="@everyone", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="배틀그라운드 모바일을 접속해야되.", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="어차피 삶은 영원하지 않아.", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="지금 당장 접속하지 않으면", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="큰코다칠줄 알아라.", color=0xffaaaa))
+        if randomNum==2:
+            await message.channel.send(embed=discord.Embed(title="@everyone", color=0xaaaaff))
+            await message.channel.send(embed=discord.Embed(title="가서 영화라도 한편 보고 와.", color=0xaaaaff))
+            await message.channel.send(embed=discord.Embed(title="가끔은 이런 일탈도 나쁘지 않지.", color=0xaaaaff))
+        if randomNum==3:
+            msg = "@everyone ! {0.author.mention} ".format(message) 
+            await message.channel.send( msg, color=0xaaffaa)
+            msg = "Hi, {0.author.mention} ?".format(message) 
+            await message.channel.send( msg, color=0xaaffaa)
+            await message.channel.send(embed=discord.Embed(title="오늘 하루는 잘 보냈니. 죽은건 아니지?", color=0xaaffaa))
         
     if message.content.startswith("!언어"):
         embed = discord.Embed(title="안녕? 난 뉴 배돌이야. ", description=" ", color=0xaaaaff)
