@@ -71,7 +71,7 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !오늘뭐할까 ", description=" 배돌이에게 오늘 하루 할 일을 정해달라고 물어보세요!", color=0xff0000)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" !내쪽지 ", description=" 배돌이가 그동안 너에게 쪽지를 보내왔다는 사실을 알고 있니? ", color=0xff0000)
+        embed = discord.Embed(title=" !공지 ", description=" 배돌이가 그동안 너에게 공지를 보내왔다는 사실을 알고 있니? ", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !패치노트 ", description=" 배돌이가 자신의 패치노트를 불러옵니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
@@ -208,14 +208,14 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *0.0.9 ", description=" 2019년 07월 05일 금요일, 일부 Ui 수정!", color=0x00fefe)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" *0.1.0 ", description=" 2019년 07월 05일 금요일, !내쪽지 기능 업데이트", color=0x00fefe)
+        embed = discord.Embed(title=" *0.1.0 ", description=" 2019년 07월 05일 금요일, 배돌이 쪽지 기능 업데이트", color=0x00fefe)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" ", description=" ***패치노트는 계속 업데이트 할 예정입니다 ^00^ ", color=0x00fefe)
         await message.channel.send(embed=embed)
         
-    if message.content.startswith("!내쪽지"):
-        await message.channel.send(embed=discord.Embed(title="배돌이가 너희에게 보낸 쪽지들이야. 무작위로 확인할 수 있어", color=0xfefefe))
-        randomNum = random.randrange(1, 4)
+    if message.content.startswith("!공지"):
+        await message.channel.send(embed=discord.Embed(title="배돌이가 너희에게 보낸 지들이야. 무작위로 확인할 수 있어", color=0xfefefe))
+        randomNum = random.randrange(1, 5)
         if randomNum==1:
             await message.channel.send("@everyone")
             await message.channel.send(embed=discord.Embed(title="배틀그라운드 모바일을 접속해야되.", color=0xffaaaa))
@@ -229,6 +229,9 @@ async def on_message(message):
         if randomNum==3:
             await message.channel.send("@everyone")
             await message.channel.send(embed=discord.Embed(title="오늘 하루는 잘 보냈니. 죽은건 아니지?", color=0xaaffaa))
+        if randomNum==4:
+            await message.channel.send("@everyone")
+            await message.channel.send(embed=discord.Embed(title="여기 아무도 없니?", color=0xafafaf))
         
     if message.content.startswith("!언어"):
         embed = discord.Embed(title="안녕? 난 뉴 배돌이야. ", description=" ", color=0xaaaaff)
