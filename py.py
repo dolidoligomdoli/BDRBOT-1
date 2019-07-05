@@ -306,48 +306,14 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="헬스장이라도 가봐. 건강은 자기자신이 챙기는거다.?!", color=0xfe00fe))
             
      if message.content.startswith("!오늘의시한편"):
-        randomNum = random.randrange(1, 6)
-        if randomNum==1:
-            await message.channel.send(embed=discord.Embed(title="방문객", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="정현종 시인", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="============", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="사람이 온다는 건", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="실로 어마어마한 일이다.", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="그는", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="그의 과거와", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="현재와", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="그리고", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="그의 미래가 함께 오기 때문이다.", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="한 사람의 일생이 오기 때문이다.", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="부서지기 쉬운", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="그래서 부서지기도 했을", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="마음이 오는 것이다 -그 갈피를", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="아마 마음은 더듬어볼 수 있을 ", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="마음, ", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="내 마음이 그런 바람을 흉내낸다면 ", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="필경 환대가 될 것이다. ", color=0xfefefe))
-        if randomNum==2:
-            await message.channel.send(embed=discord.Embed(title="흔들리며 피는 꽃", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="도종환 시인", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="===========", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="흔들리지 않고 피는 꽃이 어디 있으랴", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="이 세상 그 어떤 아름다운 꽃들도", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="다 흔들리면서 피었나니", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="흔들리면서 줄기를 곧게 세웠나니", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="흔들리지 않고 가는 사람이 어디 있으랴", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="===========", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="젖지않고 피는 꽃이 어디 있으랴", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="이 세상 그 어떤 빛나는 꽃들도", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="다 젖으며 젖으며 피었나니", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="바람과 비에 젖으며 꽃잎 따뜻하게 피웠나니", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="젖지 않고 가는 삶이 어디 있으랴", color=0xfefefe))
-         if randomNum==3:
+        randomNum = random.randrange(1, 4)
+         if randomNum==1:
             await message.channel.send(embed=discord.Embed(title="그 꽃", color=0xfefefe))
             await message.channel.send(embed=discord.Embed(title="고은 시인", color=0xfefefe))
             await message.channel.send(embed=discord.Embed(title="===========", color=0xfefefe))
             await message.channel.send(embed=discord.Embed(title="내려갈 때 보았네", color=0xfefefe))
             await message.channel.send(embed=discord.Embed(title="올라갈 때 못 본 그 꽃", color=0xfefefe))
-         if randomNum==4:
+         if randomNum==2:
             await message.channel.send(embed=discord.Embed(title="행복", color=0xfefefe))
             await message.channel.send(embed=discord.Embed(title="나태주 시인", color=0xfefefe))
             await message.channel.send(embed=discord.Embed(title="===========", color=0xfefefe))
@@ -359,7 +325,7 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="===========", color=0xfefefe))
             await message.channel.send(embed=discord.Embed(title="외로울 때", color=0xfefefe))
             await message.channel.send(embed=discord.Embed(title="혼자서 부를 노래가 있다는 것", color=0xfefefe))
-         if randomNum==5:
+         if randomNum==3:
             await message.channel.send(embed=discord.Embed(title="풀꽃", color=0xfefefe))
             await message.channel.send(embed=discord.Embed(title="나태주 시인", color=0xfefefe))
             await message.channel.send(embed=discord.Embed(title="===========", color=0xfefefe))
