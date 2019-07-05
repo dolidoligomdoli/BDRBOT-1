@@ -51,7 +51,7 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !도와줘 ", description=" 배돌이가 명령어 목록을 불러옵니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" !컴퓨터는? ", description=" 배돌이가 믿음직한 컴퓨터 업체를 선별해드립니다 (광고 X) ", color=0xff0000)
+        embed = discord.Embed(title=" !컴퓨터는? ", description=" 배돌이가 믿음직한 컴퓨터 업체들을 선별해드립니다 (광고 X) ", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !커뮤니티 웹사이트 추천 ", description=" 배돌이가 괜찮은 커뮤니티 사이트를 추천해줍니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
@@ -81,15 +81,26 @@ async def on_message(message):
         await message.channel.send( msg)
         
     if message.content.startswith("!컴퓨터는?"):
-        embed = discord.Embed(title=" 컴퓨존 ", description=" 일반인들을 위한 천국, 컴퓨존입니다.. ", color=0x0000ff)
-        await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 컴마왕에서 구매하실 분들은 대게 이런 분들 입니다. ", description=" 스트리머, 유튜버, 프로게이머, ;;; 방구석 엠창 인생 사는 히키코모리 백수", color=0x0000ff)
-        await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" 컴마왕은 부품값도 시중에 유통되고 있는 부품들보다 더 올려서 판매합니다. ", description=" 전형적인 장사꾼들입니다. 일반인들은 이걸 알리가 없죠... ", color=0x0000ff)
-        await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" it 정보에는 초짜에 해당하시는 분들은 컴퓨존으로 가세요. ", description=" 일반인들을 위한 곳은 거기밖에 없습니다. ", color=0x0000ff)
-        await message.channel.send(embed=embed)
+        randomNum = random.randrange(1, 4)
+        if randomNum==1:
+            await message.channel.send(embed=discord.Embed(title="혹시 너 it 관련 정보도 부족하고, 조립 및 A/S가 두렵니? 그렇다면, 컴퓨존을 추천해줄께", color=0x00ff00))
+            await message.channel.send(embed=discord.Embed(title="컴퓨존은 1991년 노인호 대표와 김태선 대표가 '태인시스템'이라는 회사를 설립하고 출발한 기점으로", color=0x00ff00))
+            await message.channel.send(embed=discord.Embed(title="1999년 '컴퓨존'으로 상호를 변경하고 아직까지 그 명성을 이어나가고 있는 컴퓨터 및 각종 전자기기 판매 업체야.", color=0x00ff00))
+            await message.channel.send(embed=discord.Embed(title="국내 컴퓨터 조립 업계 1위라고 불릴 만큼 국내 컴퓨터 판매 쇼핑몰 업계중에 규모가 가장 크고, 독보적인 지위를 차지하고 있지.", color=0x00ff00))
+            await message.channel.send(embed=discord.Embed(title="하지만 근무환경이나 A/S 등 여러 방면에서 전현직 직원들의 평은 대단히 좋지 않더라. 뭐 완벽한 회사는 없잖아..?", color=0x00ff00))
+        if randomNum==2:
+            await message.channel.send(embed=discord.Embed(title="컴퓨터에 대한 정보가 부족한데, 컴퓨터는 사고 싶다고? 그러면 다나와를 추천해줄께.", color=0x0000ff))
+            await message.channel.send(embed=discord.Embed(title="2000년부터 온라인 가격비교 서비스를 제공하는 대한민국의 사이트. (주)다나와에서 운영하고 있지.", color=0x0000ff))
+            await message.channel.send(embed=discord.Embed(title="가장 많은 업체들이 참여한 규모의 경제를 이룬 상태이기 때문에 ", color=0x0000ff))
+            await message.channel.send(embed=discord.Embed(title="가격 비교가 실 구매시에 상당히 정확하며, 특히 현재 시장에서 인지도가 높은 상품들을 비교하기 좋아.", color=0x0000ff))
+            await message.channel.send(embed=discord.Embed(title="전자제품, 특히 컴퓨터 부품을 기반으로 성장한 사이트이다보니 검색필터가 상당히 자세하고 정확하다는 장점이 매우 크지.", color=0x0000ff))
         
+        if randomNum==3:
+            await message.channel.send(embed=discord.Embed(title="컴마왕은 추천하고 싶지가 않네...", color=0xff0000))
+            await message.channel.send(embed=discord.Embed(title="단순히 컴퓨터에 대한 지식이 없고, 그냥 비싼게 최고라고 생각하면 여기서 알아보는게 정확하단다...", color=0xff0000))
+            await message.channel.send(embed=discord.Embed(title="가서 주변 컴잘알들에게 물어보렴, 컴마왕 어떻게 생각하냐고.", color=0xff0000))
+            await message.channel.send(embed=discord.Embed(title="참고로 듣보잡 업체들 특징이 뭔지 아니? 스트리머 및 유튜버들에게 광고를 부탁한다는 점이야. ", color=0xff0000))
+            
     if message.content.startswith("!커뮤니티 웹사이트 추천"):
         randomNum = random.randrange(1, 4)
         if randomNum==1:
