@@ -218,6 +218,34 @@ async def on_message(message):
             await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':six: ',color=0xfefe00))
         
 
+    if message.content.startswith("!테스트"):
+        channel = message.channel
+        embed = discord.Embed(
+            title = '안녕? 난 뉴 배돌이야. 너희들과 대화를 나눠보고 싶어.',
+            description = '',
+            color = discord.Color.red()
+        )
+
+        dtime = datetime.datetime.now()
+        embed.set_footer(text=str(dtime.year)+"년 "
+                         +str(dtime.month)+"월 "
+                         +str(dtime.day)+"일 "
+                         +str(dtime.hour)+"시 "
+                         +str(dtime.minute)+"분 "
+                         +str(dtime.second)+"초")             
+        embed.add_field(name = '!안녕', value = '배돌이가 인사를 해줍니다 ',inline = False)
+        embed.add_field(name='!컴퓨터는?', value='배돌이가 검증된 정보통으로 괜찮은 업체를 소개합니다 ', inline=False)
+        embed.add_field(name='!커뮤니티 웹사이트 추천', value='배돌이가 괜찮은 커뮤니티 사이트 3개를 추천해줍니다 ', inline=False)
+        embed.add_field(name='!볼 만한 유튜버 추천', value='배돌이가 괜찮은 유튜버 3명을 추천해줍니다 ', inline=False)
+        embed.add_field(name='!모바일 게임 추천 ', value='배돌이가 현재 흥행하는 모바일 게임 3개를 추천해줍니다 (광고 X)', inline=False)
+        embed.add_field(name='!PC 게임 추천 ', value='배돌이가 현재 흥행하는 PC 게임 3개를 추천해줍니다 (광고 X)', inline=False)                     
+        embed.add_field(name='!자기소개', value='배돌이가 자기소개를 해줍니다', inline=False)
+        embed.add_field(name='!언어', value='배돌이가 무슨 언어를 기반으로 개발되어지고 있는지 알려줍니다', inline=False)
+        embed.add_field(name='!오늘 내 생일이야', value='배돌이가 생일을 축하해줍니다', inline=False)
+        embed.add_field(name='!랜덤주사위', value='배돌이가 랜덤으로 주사위를 굴려줍니다', inline=False)
+        embed.add_field(name='!패치노트', value='배돌이가 자신의 패치노트를 불러옵니다', inline=False)
+
+        await message.channel.send(embed=embed)                              
 
     
 
