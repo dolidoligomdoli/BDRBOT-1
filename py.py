@@ -31,14 +31,6 @@ async def on_member_remove(member):
     await app.message.channel.send( fmt.format(member, member.server))
 
 @app.event
-async def my_background_task():
-    await app.wait_until_ready()
-    channel = discord.Object(id="585087748952817665")
-    while not app.is_closed:
-        await app.message.channel.send( "배틀그라운드 모바일을 멀리하지마세요, 공부를 멀리하세요.")
-        await asyncio.sleep(60*60*24) 
-
-@app.event
 async def on_message(message):
 
     if message.content.startswith("!도와줘"):
@@ -303,5 +295,4 @@ async def on_message(message):
 
 
 accross_token = os.environ["BOT_TOKEN"]
-app.loop.create_task(my_background_task())
 app.run(accross_token)
