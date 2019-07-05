@@ -73,8 +73,6 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !내쪽지 ", description=" 배돌이가 그동안 너에게 쪽지를 보내왔다는 사실을 알고 있니? ", color=0xff0000)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" !오늘의시한편 ", description=" 배돌이가 무작위로 시 한편을 읊어줍니다. ", color=0xff0000)
-        await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !패치노트 ", description=" 배돌이가 자신의 패치노트를 불러옵니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *명령어 목록은 계속 업데이팅 중 입니다. ", description="  ", color=0xff0000)
@@ -305,26 +303,6 @@ async def on_message(message):
         if randomNum==15:
             await message.channel.send(embed=discord.Embed(title="헬스장이라도 가봐. 건강은 자기자신이 챙기는거다.?!", color=0xfe00fe))
             
-     if message.content.startswith("!오늘의시한편"):
-        randomNum = random.randrange(1, 3)
-         if randomNum==1:
-            await message.channel.send(embed=discord.Embed(title="그 꽃", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="고은 시인", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="===========", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="내려갈 때 보았네", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="올라갈 때 못 본 그 꽃", color=0xfefefe))
-         if randomNum==2:
-            await message.channel.send(embed=discord.Embed(title="행복", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="나태주 시인", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="===========", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="저녁 때", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="돌아갈 집이 있다는 것 ", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="===========", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="힘들 때", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="마음 속에 생각나는 사람이 있다는 것 ", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="===========", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="외로울 때", color=0xfefefe))
-            await message.channel.send(embed=discord.Embed(title="혼자서 부를 노래가 있다는 것", color=0xfefefe))
 
 
 accross_token = os.environ["BOT_TOKEN"]
