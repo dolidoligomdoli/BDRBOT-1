@@ -301,6 +301,8 @@ async def on_message(message):
         if randomNum==15:
             await message.channel.send(embed=discord.Embed(title="헬스장이라도 가봐. 건강은 자기자신이 챙기는거다.?!", color=0xfe00fe))
 
+        if message.content.startswith("?쌔임"):
+            await message.channel.send("?안녕")
 
 
 accross_token = os.environ["BOT_TOKEN"]
