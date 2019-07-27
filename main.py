@@ -244,8 +244,7 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="삼성 스마트폰, 애플 스마트폰, 컴퓨터, 병원에서 사용하는 의료기기들까지 전부 일제 부품들이 들어가니까", color=0xffaaaa))
             await message.channel.send(embed=discord.Embed(title="전부 망치로 깨부수고 다녀야 되.   ", color=0xffaaaa))
             await message.channel.send(embed=discord.Embed(title="전부 망치로 깨부수고 다닐 자신이 있다면 불매 운동 강추할게.", color=0xffaaaa))
-            msg = "하지만, 그게 아니라면 그냥 하지마 . 열등한 {0.author.mention} 병신새끼야 ㅋㅋㅋ ".format(message) 
-            await message.channel.send( msg)
+            
             
 
         
