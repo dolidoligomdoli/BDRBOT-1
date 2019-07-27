@@ -75,7 +75,7 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !패치노트 ", description=" 배돌이가 자신의 패치노트를 불러옵니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" *명령어 목록은 계속 업데이 중 입니다. ", description="  ", color=0xff0000)
+        embed = discord.Embed(title=" *명령어 목록은 계속 업데이트 중 입니다. ", description="  ", color=0xff0000)
         await message.channel.send( embed=embed)
         
     if message.content.startswith("!안녕"):
