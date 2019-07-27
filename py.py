@@ -71,11 +71,11 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !오늘뭐할까 ", description=" 배돌이에게 오늘 하루 할 일을 정해달라고 물어보세요!", color=0xff0000)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" !공지 ", description=" 배돌이가 그동안 너에게 공지를 보내왔다는 사실을 알고 있니? ", color=0xff0000)
+        embed = discord.Embed(title=" !오늘의상식 ", description=" 배돌이가 무작위로 알아두기만 해도 도움이 될만한 기본상식 하나를 알려줍니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !패치노트 ", description=" 배돌이가 자신의 패치노트를 불러옵니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" *명령어 목록은 계속 업데이팅 중 입니다. ", description="  ", color=0xff0000)
+        embed = discord.Embed(title=" *명령어 목록은 계속 업데이 중 입니다. ", description="  ", color=0xff0000)
         await message.channel.send( embed=embed)
         
     if message.content.startswith("!안녕"):
@@ -211,24 +211,43 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *0.0.9 ", description=" 2019년 07월 05일 금요일, 일부 Ui 수정!", color=0x00fefe)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" *0.1.0 ", description=" 2019년 07월 05일 금요일, 배돌이 쪽지 기능 업데이트", color=0x00fefe)
+        embed = discord.Embed(title=" *0.1.0 ", description=" 2019년 07월 05일 금요일, 배돌이 공지 기능 업데이트", color=0x00fefe)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" *0.1.1 ", description=" 2019년 07월 27일 토요일, 배돌이 공지 기능 삭제, 대신 !오늘의상식 기능으로 대체합니다. ", color=0x00fefe)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" ", description=" ***패치노트는 계속 업데이트 할 예정입니다 ^00^ ", color=0x00fefe)
         await message.channel.send(embed=embed)
         
-    if message.content.startswith("!공지"):
-        await message.channel.send(embed=discord.Embed(title="배돌이가 너희에게 보낸 공지들이야. 무작위로 확인할 수 있어", color=0xfefefe))
-        randomNum = random.randrange(1, 3)
+    if message.content.startswith("!오늘의상식"):
+        await message.channel.send(embed=discord.Embed(title="안녕, 난 뉴 배돌이야. 다음 정보들은 알아두기만 해도 좋은 기본상식들이야.", color=0xfefefe))
+        randomNum = random.randrange(1, 4)
         if randomNum==1:
-            await message.channel.send("@everyone")
-            await message.channel.send(embed=discord.Embed(title="배틀그라운드 모바일을 접속해야되.", color=0xffaaaa))
-            await message.channel.send(embed=discord.Embed(title="어차피 삶은 영원하지 않아.", color=0xffaaaa))
-            await message.channel.send(embed=discord.Embed(title="지금 당장 접속하지 않으면", color=0xffaaaa))
-            await message.channel.send(embed=discord.Embed(title="큰코다칠줄 알아라.", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="차가운 물은 뜨거운 물보다 더 빨리 데워지고, 뜨거운 물은 차가운 물보다 더 빨리 얼려진다..", color=0xffaaaa))
         if randomNum==2:
-            await message.channel.send("@everyone")
-            await message.channel.send(embed=discord.Embed(title="가서 영화라도 한편 보고 와.", color=0xaaaaff))
-            await message.channel.send(embed=discord.Embed(title="가끔은 이런 일탈도 나쁘지 않지.", color=0xaaaaff))
+            await message.channel.send(embed=discord.Embed(title="마블 코믹스의 토니 스타크의 영어 풀네임은 Anthony Edward Stark 이다.", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="해외에서는 알고있는 사람들이 많았으나 한국에서는 Tony stark로만 알고 있는 사람들이 많다.", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="이유는 한국에서는 원작보다 영화가 제일 인기가 많았기 때문이라고 한다...", color=0xffaaaa))
+        if randomNum==3:
+            await message.channel.send(embed=discord.Embed(title="2019년 6월달부터였나 7월달부터였나 온라인 커뮤니티에서부터 시작된 "일본 불매 운동"이 터무니없는 이유를 알려줄께.", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="다음은 우리나라가 일본으로부터 수입해오는 재료들 품목 목록이야.", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="1위 : 반도체 제조 장치 ", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="2위 : 집적회로( CPU, 메모리 등)", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="3위 : 정밀화학원료", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="4위 : 플라스틱필름, 시트 등", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="5위 : 고철", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="6위 : 고장력강판 등", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="7위 : 화학공업제품", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="8위 : 키시렌", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="9위 : 다이오드, 태양전지 등", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="10위 : 반도체제조장치 부품", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="위의 목록처럼 "일본 불매 운동"을 하려면,", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="삼성 스마트폰, 애플 스마트폰, 컴퓨터, 병원에서 사용하는 의료기기들까지 전부 일제 부품들이 들어가니까", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="전부 망치로 깨부수고 다녀야 되.   ", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="전부 망치로 깨부수고 다닐 자신이 있다면 불매 운동 강추할게.", color=0xffaaaa))
+            msg = "하지만, 그게 아니라면 그냥 하지마 . 열등한 {0.author.mention} 병신새끼야 ㅋ ".format(message) 
+            await message.channel.send( msg)
+            
+
         
     if message.content.startswith("!언어"):
         embed = discord.Embed(title="안녕? 난 뉴 배돌이야. ", description=" ", color=0xaaaaff)
