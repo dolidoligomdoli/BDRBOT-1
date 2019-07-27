@@ -228,7 +228,7 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="해외에서는 알고있는 사람들이 많았으나 한국에서는 Tony stark로만 알고 있는 사람들이 많다.", color=0xffaaaa))
             await message.channel.send(embed=discord.Embed(title="이유는 한국에서는 원작보다 영화가 제일 인기가 많았기 때문이라고 한다...", color=0xffaaaa))
         if randomNum==3:
-            await message.channel.send(embed=discord.Embed(title="2019년 6월달부터였나 7월달부터였나 온라인 커뮤니티에서부터 시작된 "일본 불매 운동"이 터무니없는 이유를 알려줄께.", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="2019년 6월달부터였나 7월달부터였나 온라인 커뮤니티에서부터 시작된 [일본 불매 운동]이 터무니없는 이유를 알려줄께.", color=0xffaaaa))
             await message.channel.send(embed=discord.Embed(title="다음은 우리나라가 일본으로부터 수입해오는 재료들 품목 목록이야.", color=0xffaaaa))
             await message.channel.send(embed=discord.Embed(title="1위 : 반도체 제조 장치 ", color=0xffaaaa))
             await message.channel.send(embed=discord.Embed(title="2위 : 집적회로( CPU, 메모리 등)", color=0xffaaaa))
@@ -240,11 +240,11 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="8위 : 키시렌", color=0xffaaaa))
             await message.channel.send(embed=discord.Embed(title="9위 : 다이오드, 태양전지 등", color=0xffaaaa))
             await message.channel.send(embed=discord.Embed(title="10위 : 반도체제조장치 부품", color=0xffaaaa))
-            await message.channel.send(embed=discord.Embed(title="위의 목록처럼 "일본 불매 운동"을 하려면,", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="위의 목록처럼 [일본 불매 운동]을 하려면,", color=0xffaaaa))
             await message.channel.send(embed=discord.Embed(title="삼성 스마트폰, 애플 스마트폰, 컴퓨터, 병원에서 사용하는 의료기기들까지 전부 일제 부품들이 들어가니까", color=0xffaaaa))
             await message.channel.send(embed=discord.Embed(title="전부 망치로 깨부수고 다녀야 되.   ", color=0xffaaaa))
             await message.channel.send(embed=discord.Embed(title="전부 망치로 깨부수고 다닐 자신이 있다면 불매 운동 강추할게.", color=0xffaaaa))
-            msg = "하지만, 그게 아니라면 그냥 하지마 . 열등한 {0.author.mention} 병신새끼야 ㅋ ".format(message) 
+            msg = "하지만, 그게 아니라면 그냥 하지마 . 열등한 {0.author.mention} 병신새끼야 ㅋㅋㅋ ".format(message) 
             await message.channel.send( msg)
             
 
