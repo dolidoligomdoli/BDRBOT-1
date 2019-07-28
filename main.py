@@ -228,11 +228,8 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="해외에서는 알고있는 사람들이 많았으나 한국에서는 Tony stark로만 알고 있는 사람들이 많다.", color=0xffaaaa))
             await message.channel.send(embed=discord.Embed(title="이유는 한국에서는 원작보다 영화가 제일 인기가 많았기 때문이라고 한다...", color=0xffaaaa))
         if randomNum==3:
-            await message.channel.send(embed=discord.Embed(title="한국의 기독교는 죽었다.", color=0xffaaaa))
-            await message.channel.send(embed=discord.Embed(title="우린 흔히 말한다, 개독교라고", color=0xffaaaa))
-            await message.channel.send(embed=discord.Embed(title="그런데, 애초에 개독교라고 욕할 필요가 없다. 한국의 기독교는 이미 죽은 상태이기 때문이다..", color=0xffaaaa))
-            await message.channel.send(embed=discord.Embed(title="자칭 그리스도인이라면서 그 지랄하고 다니는 것 보면 딱 사이즈가 나오기 마련...", color=0xffaaaa))
-            await message.channel.send(embed=discord.Embed(title="하루빨리 진짜 기독교를 체험하고 싶으면 한국을 떠나라", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="집에 있는 변기가 막혔을 때는 페트병의 50퍼센트를 정확히 자른 후 받침대가 있는 부분으로 뚜러뻥을 대체 할 수 있다.", color=0xffaaaa))
+            
 
 
 
