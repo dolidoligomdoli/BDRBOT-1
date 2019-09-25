@@ -1,9 +1,20 @@
 #Work with Python 3.7.3
-import asyncio, discord, datetime, logging, random, traceback, time, os
-from discord.ext import commands
+import discord
+import asyncio
+import datetime
+import logging
+import random
+import traceback
+import time
+import datetime
+import os
+import urllib
+import bs4
+from bs4 import BeautifulSoup
+from urllib.request import urlopen, Request
+
 
 app = discord.Client()
-
 
 @app.event
 async def on_ready():
@@ -43,7 +54,10 @@ async def my_background_task():
 async def on_message(message):
 
     if message.content.startswith("!도와줘"):
-        embed = discord.Embed(title="  ", description=" 안녕? 난 뉴 배돌이야. 너희들과 대화를 나눠보고 싶어.", color=0xff0000)
+        dtime = datetime.datetime.now()
+        embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" 안녕? 난 뉴 배돌이야. 너희들과 대화를 나눠보고 싶어.  ", description="", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" 명령어 목록 ", description=" ", color=0xff0000)
         await message.channel.send(embed=embed)
@@ -72,6 +86,16 @@ async def on_message(message):
         embed = discord.Embed(title=" !오늘뭐할까 ", description=" 배돌이에게 오늘 하루 할 일을 정해달라고 물어보세요!", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !오늘의상식 ", description=" 배돌이가 무작위로 알아두기만 해도 도움이 될만한 기본상식 하나를 알려줍니다 ", color=0xff0000)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" !볼 만한 영화 추천 ", description=" 배돌이가 제일 괜찮은 영화들을 한편 소개해줍니다 ", color=0xff0000)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" !오늘의운세", description=" 배돌이가 오늘의운세를 짧고 간결하게 알려줍니다 ", color=0xff0000)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" !이모티콘 ", description=" 배돌이가 무작위로 이모티콘 하나를 호출합니다", color=0xff0000)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" !실시간검색어", description=" 배돌이가 네이버 실시간 검색어 순위를 기반으로 현재 실검 현황을 알려줍니다 ", color=0xff0000)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" !실시간영화랭킹 ", description=" 배돌이가 다음 검색 엔진 기반으로 현재 영화 랭킹 현황을 알려줍니다  ", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !패치노트 ", description=" 배돌이가 자신의 패치노트를 불러옵니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
@@ -107,13 +131,17 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="참고로 듣보잡 업체들 특징이 뭔지 아니? 스트리머 및 유튜버들에게 광고를 부탁한다는 점이야. ", color=0xff0000))
             
     if message.content.startswith("!커뮤니티 웹사이트 추천"):
-        randomNum = random.randrange(1, 4)
+        randomNum = random.randrange(1, 6)
         if randomNum==1:
             await message.channel.send(embed=discord.Embed(title="네이버 카페는 어떠니", color=0x0000ff))
         if randomNum==2:
             await message.channel.send(embed=discord.Embed(title="디시인사이드는 어때??", color=0x0000ff))
         if randomNum==3:
             await message.channel.send(embed=discord.Embed(title="인벤은 해볼 생각 없어?", color=0x0000ff))
+        if randomNum==4:
+            await message.channel.send(embed=discord.Embed(title="클리앙은 어떠니?", color=0x0000ff))
+        if randomNum==5:
+            await message.channel.send(embed=discord.Embed(title="오늘의유머는 해볼 생각 없어?", color=0x0000ff))
 
     if message.content.startswith("!볼 만한 유튜버 추천"):
         randomNum = random.randrange(1, 11)
@@ -152,6 +180,9 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="마블 퓨처 파이트 해봐, 추억의 게임이잖니", color=0x0000ff))
         
     if message.content.startswith("!자기소개"):
+        dtime = datetime.datetime.now()
+        embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
+        await message.channel.send(embed=embed)
         embed = discord.Embed(title=" 안녕, 난 뉴 배돌이야.  ", description="", color=0x227799)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" 너희들이 디스코드 서버를 잘 이용할 수 있도록  ", description="", color=0x227799)
@@ -168,7 +199,7 @@ async def on_message(message):
         await message.channel.send( msg)
         
     if message.content.startswith("!PC 게임 추천"):
-        randomNum = random.randrange(1, 10)
+        randomNum = random.randrange(1, 12)
         if randomNum==1:
             await message.channel.send(embed=discord.Embed(title="배틀그라운드는 어떠니", color=0x00ff00))
         if randomNum==2:
@@ -187,8 +218,15 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="피파 온라인 4는 꽤 재밌어보이던데.", color=0x00ff00))
         if randomNum==9:
             await message.channel.send(embed=discord.Embed(title="GTA5도 한번 시작해봐, 꽤 재밌어.", color=0x00ff00))
+        if randomNum==10:
+            await message.channel.send(embed=discord.Embed(title="리니지 한번 시작해봐.", color=0x00ff00))
+        if randomNum==11:
+            await message.channel.send(embed=discord.Embed(title="카운터스트라이크 온라인도 한번 해보면 재밌을 거야.", color=0x00ff00))           
 
     if message.content.startswith("!패치노트"):
+        dtime = datetime.datetime.now()
+        embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
+        await message.channel.send(embed=embed)
         embed = discord.Embed(title="*2018년 12월 ", description=" 배돌이 프로젝트 구상 및 개발 시작! ", color=0x00fefe)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title="*2019년 06월 01일 ", description=" 갑작스런 사태로 컴퓨터에 저장해놓은 프로젝트 파일이 사라짐. ", color=0x00fefe)
@@ -215,6 +253,16 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *0.1.1 ", description=" 2019년 07월 27일 토요일, 배돌이 공지 기능 삭제, 대신 !오늘의상식 기능으로 대체합니다. ", color=0x00fefe)
         await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" *0.1.2 ", description=" 2019년 07월 28일 일요일, 배돌이가 영화 한편을 무작위로 추천해줄수 있습니다, 지금 당장 추천받아보세요! ", color=0x00fefe)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" *0.1.3 ", description=" 2019년 07월 28일 일요일, 배돌이가 오늘의운세를 알려줍니다. 지금 당장 운세를 무료로 받아보세요!", color=0x00fefe)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" *0.1.4 ", description=" 2019년 08월 09일 금요일, 배돌이가 네이버 기반인 현 실시간 검색어 랭킹을 알려줍니다!(2019년08월21일 다시 부활한 기능입니다.)", color=0x00fefe)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" *0.1.5 ", description=" 2019년 08월 10일 토요일, 배돌이가 이제 커여운 이모티콘을 사용할 수 있습니다.", color=0x00fefe)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" *0.1.6 ", description=" 2019년 08월 22일 목요일, 배돌이가 다음 검색 엔진 기반인 현재 영화 랭킹을 알려줍니다.", color=0x00fefe)
+        await message.channel.send(embed=embed)
         embed = discord.Embed(title=" ", description=" ***패치노트는 계속 업데이트 할 예정입니다 ^00^ ", color=0x00fefe)
         await message.channel.send(embed=embed)
         
@@ -228,13 +276,35 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="해외에서는 알고있는 사람들이 많았으나 한국에서는 Tony stark로만 알고 있는 사람들이 많다.", color=0xffaaaa))
             await message.channel.send(embed=discord.Embed(title="이유는 한국에서는 원작보다 영화가 제일 인기가 많았기 때문이라고 한다...", color=0xffaaaa))
         if randomNum==3:
-            await message.channel.send(embed=discord.Embed(title="한국의 기독교는 죽었다.", color=0xffaaaa))
-            await message.channel.send(embed=discord.Embed(title="우린 흔히 말한다, 개독교라고", color=0xffaaaa))
-            await message.channel.send(embed=discord.Embed(title="그런데, 애초에 개독교라고 욕할 필요가 없다. 한국의 기독교는 이미 죽은 상태이기 때문이다..", color=0xffaaaa))
-            await message.channel.send(embed=discord.Embed(title="자칭 그리스도인이라면서 그 지랄하고 다니는 것 보면 딱 사이즈가 나오기 마련...", color=0xffaaaa))
-            await message.channel.send(embed=discord.Embed(title="하루빨리 진짜 기독교를 체험하고 싶으면 한국을 떠나라", color=0xffaaaa))
+            await message.channel.send(embed=discord.Embed(title="집에 있는 변기가 막혔을 때는 페트병의 50퍼센트를 정확히 자른 후 받침대가 있는 부분으로 뚜러뻥을 대체 할 수 있다.", color=0xffaaaa))
 
 
+    if message.content.startswith("!볼 만한 영화 추천"):
+        await message.channel.send(embed=discord.Embed(title="안녕? 난 니가 어떤 애인진 모르지만, 정성껏 최선을 다해 추천해줄게.", color=0xfefefe))
+        randomNum = random.randrange(1, 12)
+        if randomNum==1:
+            await message.channel.send(embed=discord.Embed(title="오늘같은 날에는 추억을 되돌아보게 해줄만한 [해리포터 시리즈] 는 어떠니?", color=0xfefe00))
+        if randomNum==2:
+            await message.channel.send(embed=discord.Embed(title="어벤져스 인피니티 워는 어때?", color=0xfefe00))
+        if randomNum==3:
+            await message.channel.send(embed=discord.Embed(title="엑스맨 데이즈 오브 퓨쳐 패스트는?", color=0xfefe00))
+        if randomNum==4:
+            await message.channel.send(embed=discord.Embed(title="인터스텔라는 어떠니? ", color=0xfefe00))
+        if randomNum==5:
+            await message.channel.send(embed=discord.Embed(title="토비 맥과이어가 주연인 [스파이더맨 시리즈]는??", color=0xfefe00))
+        if randomNum==6:
+            await message.channel.send(embed=discord.Embed(title="가끔은 로맨스 영화도 재밌게 느껴지는데.. 노트북은 어떠니?", color=0xfefe00))
+        if randomNum==7:
+            await message.channel.send(embed=discord.Embed(title="파라노말 액티비티 시리즈는 어떠니? 오늘 같은 날에 최고의 조합인 것 같은데.", color=0xfefe00))
+        if randomNum==8:
+            await message.channel.send(embed=discord.Embed(title="캡틴아메리카 윈터솔저 어떠니? 그나마 MCU작품들 중에서 제일 극찬 받았던 히어로물 작품인데..", color=0xfefe00))
+        if randomNum==9:
+            await message.channel.send(embed=discord.Embed(title="가끔은 [ 터미네이터 시리즈 ]도 재밌어, 이 시리즈는 어떠니?", color=0xfefe00))
+        if randomNum==10:
+            await message.channel.send(embed=discord.Embed(title="[ 트랜스포머 시리즈 ]는 어떠니?", color=0xfefe00))
+        if randomNum==11:
+            await message.channel.send(embed=discord.Embed(title="데이터베이스 오류! 관리자에게 연락바랍니다...", color=0xff0000))
+        
 
 
 
@@ -282,6 +352,9 @@ async def on_message(message):
             await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':six: ',color=0xfefe00))
         
     if message.content.startswith('!오늘뭐할까'):
+        dtime = datetime.datetime.now()
+        embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
+        await message.channel.send(embed=embed)
         randomNum = random.randrange(1, 16)
         if randomNum==1:
             await message.channel.send(embed=discord.Embed(title="그냥 아무것도 하지않는게 더 났지 않을까?", color=0xfe00fe))
@@ -313,6 +386,312 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="데이터베이스 오류! 치명적인 오류 발생!! 다시 명령어를 입력하세요...", color=0xff0000))
         if randomNum==15:
             await message.channel.send(embed=discord.Embed(title="헬스장이라도 가봐. 건강은 자기자신이 챙기는거다.?!", color=0xfe00fe))
+            
+    if message.content.startswith("!오늘의운세"):
+        dtime = datetime.datetime.now()
+        embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
+        await message.channel.send(embed=embed)
+        await message.channel.send(embed=discord.Embed(title="니가 받은 숫자를 [!숫자]와 동일한 방식으로 채팅에다 다시 적어주렴.", color=0xfefefe))
+        randomNum = random.randrange(1, 12)
+        if randomNum==1:
+            await message.channel.send(embed=discord.Embed(title="10", color=0x00ff00))
+        if randomNum==2:
+            await message.channel.send(embed=discord.Embed(title="5", color=0x00ff00))
+        if randomNum==3:
+            await message.channel.send(embed=discord.Embed(title="4", color=0x00ff00))
+        if randomNum==4:
+            await message.channel.send(embed=discord.Embed(title="3", color=0x00ff00))
+        if randomNum==5:
+            await message.channel.send(embed=discord.Embed(title="2", color=0x00ff00))
+        if randomNum==6:
+            await message.channel.send(embed=discord.Embed(title="1", color=0x00ff00))
+        if randomNum==7:
+            await message.channel.send(embed=discord.Embed(title="9", color=0x00ff00))
+        if randomNum==8:
+            await message.channel.send(embed=discord.Embed(title="7", color=0x00ff00))
+        if randomNum==9:
+            await message.channel.send(embed=discord.Embed(title="8", color=0x00ff00))
+        if randomNum==10:
+            await message.channel.send(embed=discord.Embed(title="6", color=0x00ff00))
+        if randomNum==11:
+            await message.channel.send(embed=discord.Embed(title="데이터베이스 오류! 관리자에게 연락하세요...", color=0xff0000))
+            
+    if message.content.startswith("!3"):
+        await message.channel.send("당신의 행운의 숫자는 3 입니다. ")
+        await message.channel.send("행운의 색 - 흰색 ")
+        await message.channel.send("행운의 아이템 및 장소 - 부드러운 소재의 블라우스 또는 스커트. 진주, 다이아, 물가, 공원 ")
+        await message.channel.send("명심해 둘 것 - 용서하기 ")
+        await message.channel.send("당신은 주위 사람들을 꼼꼼하게 챙기고, 섬세하기 때문에 꽤 인기가 많은 타입입니다.  ")
+        await message.channel.send("하지만 속마음이 정열적이라 자신을 좋아해 주도록 상대방에게 강요하는 경향을 가지고 있기도 합니다. ")
+        await message.channel.send("때문에 당신은 상대방의 반응에 매우 민감하며 그로 인해 유난히 많은 상처를 받기도 합니다.  ")
+        await message.channel.send("하지만, 앞으로는 상대방이 당신이 원하는 만큼을 주지 않는다고해서 실망하지 말고, 너그러운 마음으로 관계를 지속해보세요. ")
+        await message.channel.send("당신이 강요하지 않아도 당신의 장점으로 상대방을 끌어당길 수 있습니다.  ")
+        await message.channel.send("그 점을 잊지 마시고, 상대에게 좀 더 편안하게 대해 보시기 바랍니다.  ")
+        await message.channel.send("그렇게 하면 당신은 상대를 편하게 한다는 매력을 하나 더 추가하게 되고, 사랑에 성공할 수 있을 것입니다.  ")
+        await message.channel.send("============ ")
+        await message.channel.send("모든 일은 억지로 하려고 해서 되는 것이 아닐 때가 많습니다.  ")
+        await message.channel.send("특히나 사람의 마음은 더욱 그렇겠지요. 억지로 내것을 만들려고 하면 할수록 멀어져 갈 수 있습니다.  ")
+        await message.channel.send("당신만을 생각하기 보다는 좀 더 상대를 배려해주세요. 그리고 사소한 잘못은 용서해 주는 것이 포인트이니 이 점을 명심하십시오.  ")
+        await message.channel.send("그리하면 훗날 당신에게 더 좋은 운이 돌아올 것입니다.  ")
+        
+    if message.content.startswith("!7"):
+        await message.channel.send("당신의 행운의 숫자는 7 입니다. ")
+        await message.channel.send("행운의 색 - 금색")
+        await message.channel.send("행운의 아이템 및 장소 - 잘 빠진 정장, 오팔, 오닉스, 캐치아이, 은행 ")
+        await message.channel.send("명심해 둘 것 - 행동하라 ")
+        await message.channel.send("당신은 다소 내향적이며, 침착함과 인내력을 지닌 타입입니다. 또한 성실하고 조용한 성격덕분에 남들에게 신뢰를 얻기 쉽습니다.   ")
+        await message.channel.send("모든 일을 결정할 때 침착하게 차근차근 앞뒤를 따져서 선택을 하기 때문에 그러한 모습이 보는 이로 하여금 당신의 결정에 믿음을 주는 편입니다. ")
+        await message.channel.send("또 항상 묵묵하게 자신의 자리를 잘 지키는 타입이기도 합니다.  ")
+        await message.channel.send("그러나 실제로는 매우 승부욕이 강해, 겉으로 내색하지 않지만 남에게 지기 싫어하는 성격도 가지고 있습니다.")
+        await message.channel.send("이것은 늘 부족한 행동력으로 인해 실행에 옮기지 못하기도 하니 그 점이 당신의 가장 큰 단점이라고 할 수 있겠습니다.  ")
+        await message.channel.send("그 점을 잊지 마시고, 상대에게 좀 더 편안하게 대해 보시기 바랍니다.  ")
+        await message.channel.send("아무리 신중하고 잘된 결정이라고 할지라도 그것을 실행에 옮기지 않는다면 그 결정은 무의미할 뿐입니다.  ")
+        await message.channel.send("============ ")
+        await message.channel.send("그러니 여러모로 확실한 성격을 가진 당신은, 앞으로 과감한 행동력만 가미한다면 당신의 신중한 결정과   ")
+        await message.channel.send("더불어 많은 이득을 얻을 수도 있다는 것을 명심하고 모든 상황에 자신감있게, 추진력있게 대응하십시오. ")
+        
+      
+    if message.content.startswith("!8"):
+        await message.channel.send("당신의 행운의 숫자는 8 입니다. ")
+        await message.channel.send("행운의 색 - 빨간색")
+        await message.channel.send("행운의 아이템 및 장소 - 보송보송하고 얇은 소재의 니트, 인조모피, 루비, 가닛(석류석), 출생지 ")
+        await message.channel.send("명심해 둘 것 - 정리하기 ")
+        await message.channel.send("당신은 감수성이 풍부하고 정이 많기 때문에 좋아하는 사람에게는 진심을 다해 소중히 대하는 타입입니다.    ")
+        await message.channel.send("또한 당신의 그런 성격이 사람들과의 끈끈한 관계를 만들어 줄 수 있습니다. ")
+        await message.channel.send("상대에 대한 배려를 아끼지 않는 모습에 주변 사람들이 당신의 곁에 오래 머물고 싶어하는 등  ")
+        await message.channel.send("매우 긴밀한 인간관계를 맺게 됩니다.")
+        await message.channel.send("그러나 절친한 사람에게는 애교도 잘 떨고 귀여운 모습을 보여주기도 하는 반면, 마음이 잘 맞지 않은 사람과는 상대도 하기 싫어하는 극단적인 성격을 가지고 있기도 합니다.  ")
+        await message.channel.send("그래서 당신의 태도에 따라 당신에 대한 평가는 상반될 수 있습니다.  ")
+        await message.channel.send("하지만, 원활한 사회생활을 위해서는 마음이 맞지 않는 사람들에게도 조금은 열린 마음으로 배려해주는 태도가 필요할 것입니다.   ")
+        await message.channel.send("============ ")
+        await message.channel.send("사람은 누구든 원하는 것만 하고 살 수는 없는 법! 사회생활 혹은 단체생활을 하다보면 싫은 사람과도 마주쳐야 할 상황이 있음을 명심하고   ")
+        await message.channel.send("상대방에게 나쁜 인상을 준다는 것은 늘 당신에게 분리한 조건으로 작용하는 경우가 많다는 것을 명심하고,  ")
+        await message.channel.send("싫어도 내색하지 않을 수 있는 인내심을 기르십시오.  ")
+        
+        
+    if message.content.startswith("!9"):
+        await message.channel.send("당신의 행운의 숫자는 9 입니다. ")
+        await message.channel.send("행운의 색 - 보라색")
+        await message.channel.send("행운의 아이템 및 장소 - 모자, 깔끔하게 정리한 머리, 자수정, 청금속, 서점, 도서관")
+        await message.channel.send("명심해 둘 것 - 포기 ")
+        await message.channel.send("당신은 선천적으로 두뇌 회전이 매우 빠르고 총명합니다. 때문에 모든 면에서 계산이 빠르고 그로 인한 행동력도 좋은 편입니다.")
+        await message.channel.send("또한, 수다 떨기를 좋아하며 천진난만해 보이는 면이 있는데, 그것이 사람들로 하여금 호감을 불러일으키는 요인이 됩니다. ")
+        await message.channel.send("그래서 당신은 사람들 사이에서 재미있는 캐릭터로 느껴질 수 있기에 항상 주변에 사람이 많을 것이며, 인기인으로 불리기도 합니다.")
+        await message.channel.send("하지만, 수다가 지나치면 마이너스 요인으로 작용하므로 주의하세요. 모든 실수는 입에서 나온다고, ")
+        await message.channel.send("말이 많아지다 보면 분명 당신도 모르게 실수를 하게 될 경우 또한 많아지게 될 것입니다. ")
+        await message.channel.send("그러므로 늘 언행을 단정히 하는 것이 좋습니다. ")
+        await message.channel.send("그리고, 말이 많아져 당신도 모르는 사이에 당신의 비밀을 털어놓게 될 소지가 있는데, 이 점을 주의하여야 할 것입니다. ")
+        await message.channel.send("============ ")
+        await message.channel.send("솔직한 것도 좋지만, 가끔은 개성있는 당신의 모습이 사람들에게 조금은 신비감을 느끼도록 하는 것이 당신 주변의 사람들을 쉽게 질리지 않게 하는 방법 임을 잊지 마십시오.")
+
+        
+    if message.content.startswith("!10"):
+        await message.channel.send("당신의 행운의 숫자는 10 입니다. ")
+        await message.channel.send("행운의 색 - 은색")
+        await message.channel.send("행운의 아이템 및 장소 - 실크소재의 옷, 다이아, 메이브 펄(진주색), 속도감을 느낄 수 있는 곳")
+        await message.channel.send("명심해 둘 것 - 인내할것 ")
+        await message.channel.send("당신은 모든 일에 호기심이 왕성하고 다양한 사람들과 쉽게 친해지는 타입입니다. 때문에 왕성한 호기심으로 여러 가지 다양한 분야에 관심을 가지게 되고 ")
+        await message.channel.send("그로 인해 수많은 인간관계를 형성하게 되는 것입니다. 또한, 사교적이고 솔직한 타입이기 때문에 주변에 항상 사람이 많을 것입니다.")
+        await message.channel.send("하지만, 다소 실증을 잘 내며 교제상대가 수시로 바뀌기 때문에 깊은 관계를 유지하기 힘든 면도 있으니 이 점을 주의하세요.")
+        await message.channel.send("인간관계에서 실증을 잘 낸다는 것은 매우 좋지 않은 부분입니다. ")
+        await message.channel.send("다양한 관계를 형성하는 만큼 깊이가 없다면 정작 당신이 힘들거나 도움이 필요한 순간에 당신이 속을 터놓고 고민을 말 하거나")
+        await message.channel.send("혹은 도움을 요청할 만한 사람이 없다는 것을 의미하기도 합니다. ")
+        await message.channel.send("때문에 항상 대인관계에 있어서 인내하고 배려하는 태도가 필요하다는 것을 잊지 마시고 모든 인간관계에 신중을 기하도록 하심이 좋습니다.")
+        
+        
+    if message.content.startswith("!1"):
+        await message.channel.send("당신의 행운의 숫자는 1 입니다. ")
+        await message.channel.send("행운의 색 - 파란색")
+        await message.channel.send("행운의 아이템 및 장소 - 파란색 계통의 포인트가 들어간 코디, 청바지, 사파이어, 아쿠아마린, 바다, 섬, 강 ")
+        await message.channel.send("명심해 둘 것 - 봉사한다 ")
+        await message.channel.send("당신은 매우 너그러운 성격이며, 주위 사람들이 잘 따르는 성향을 지니고 있습니다. 때문에 당신 주변에는 당신의 리드를 받고자 하는 사람이 많을 것입니다. ")
+        await message.channel.send("그리고 그들을 그들의 바람대로 잘 이끌어 주는 리더십이 당신의 매력으로 작용하기도 합니다. ")
+        await message.channel.send("당신의 자신감 있는 태도가 주위 사람들에게 믿음을 주기 때문에 따르는 사람이 많은 것은 어쩌면 당연한 일이기도 합니다.")
+        await message.channel.send("하지만, 지나치게 리더십을 강조하면 반발심을 사게 될 수 있으니 조심하시는 것이 좋습니다. ")
+        await message.channel.send("당신을 따르는 이가 많다는 것은 당신이 그만큼 그들을 배려하면서 잘 이끌어줬기 때문이지 그들이 무조건 당신을 위해 따르는 것은 아닙니다. ")
+        await message.channel.send("무조건적인 리드는 거부감을 일으킬 수 있음을 명심하십시오. 가끔은 뒤에서 따라주는 사람들을 먼저 생각해주는 배려심이 필요합니다. ")
+        await message.channel.send("리드를 위한 리드가 아니라 배려와 믿음을 동반한 리드여야 당신의 매력이 빛을 발할 것이며, ")
+        await message.channel.send("============ ")
+        await message.channel.send("그들의 당신에 생각도 변하지 않을 것이니 기억하시고 늘 보살피는 태도를 유지하십시오. ")
+        
+        
+    if message.content.startswith("!2"):
+        await message.channel.send("당신의 행운의 숫자는 2 입니다. ")
+        await message.channel.send("행운의 색 - 검정색")
+        await message.channel.send("행운의 아이템 및 장소 - 롱코트나 가디건, 오닉스, 검은 돌, 빌딩, 도시")
+        await message.channel.send("명심해 둘 것 - 냉혹해 질 것 ")
+        await message.channel.send("당신은 주위 사람들과 스스럼없이 지낼 수 있는 재능을 가진 사람으로 주위 사람들도 당신을 좋아해 늘 좋은 인간관계를 유지하고 있습니다.")
+        await message.channel.send("이런 당신의 좋은 성격이 주변에 많은 사람들과 화합할 수 있게 만들어줄 것이며 늘 주변 사람들에게 당신은 성격 좋은 사람으로 인식될 것입니다.")
+        await message.channel.send("하지만, 항상 좋은 사람처럼 보이고 싶어하기 때문에 정작 당신의 본심을 잘 표현하지 못하고 속으로 삭혀 혼자 힘들어 할 때가 있네요. ")
+        await message.channel.send("상대를 배려하는 것은 지극히 좋은 성격이지만, 이런 상황이 계속되면 우유부단한 사람처럼 보이기도 하니 ")
+        await message.channel.send("적절한 의사표현을 할 수 있도록 노력하시는 것이 좋습니다.")
+        await message.channel.send("뿐만 아니라 속으로 삭히다 보면 언젠가는 당신 자신도 지칠 수 있습니다. 그리고 당신이 주변 사람들로부터 위로받고 싶고, 대우 받고 싶을 때에도 그렇지 못할 수 있습니다.")
+        await message.channel.send("대인관계에서 자신을 너무 드러내지 않거나 혹은 낮추는 것이 좋은 것만은 아니라는 사실을 깨닫고 ")
+        await message.channel.send("============ ")
+        await message.channel.send("사람들 앞에서 좀 더 솔직하게 자신의 모습을 드러내 보십시오.")
+        
+        
+    if message.content.startswith("!4"):
+        await message.channel.send("당신의 행운의 숫자는 4 입니다. ")
+        await message.channel.send("행운의 색 - 초록색")
+        await message.channel.send("행운의 아이템 및 장소 - 바지(팬츠)스타일, 에메랄드, 양산, 틀루마린, 나무, 산, 숲, 호수")
+        await message.channel.send("명심해 둘 것 - 끝을 볼 수 있도록 결말을 지을 것")
+        await message.channel.send("당신은 많은 사람들과 함께 있는 것을 좋아하는 타입입니다. 또한, 유난히 감수성이 풍부하여, 어딜 가나 인기가 많습니다. ")
+        await message.channel.send("부드럽고 온화한 당신의 성격은 사람들에게 유한 사람으로 인식될 수 있게 할 것입니다.")
+        await message.channel.send("하지만, 우유부단한 면이 있어 때로는 남에게 너무 의지하려하고, 입장이 난처한 상황에 처하면 그 자리를 회피하려고 하는 타입이기 때문에")
+        await message.channel.send("일의 결말이 흐지부지하게 끝나버리는 경우가 있습니다.")
+        await message.channel.send("이것은 당신의 단점 중에 하나라고 할 수 있는데, 이러한 모습은 다른 사람들에게 당신의 이미지를 안 좋게 보이게 할 것입니다. ")
+        await message.channel.send("뿐만 아니라 만약 이런 상황이 반복될 경우에는 사람들이 당신에게서 조금씩 멀어질 수도 있습니다. ")
+        await message.channel.send("그러니 조금은 결단력이 있는 모습을 보여주는 것이 좋겠습니다.")
+        await message.channel.send("============ ")
+        await message.channel.send("온화한 성격도 좋지만, 뭔가 맺고 끊음이 분명하고 정확하게 결말을 내는 것이 ")
+        await message.channel.send("자신의 의지를 뚜렷하게 표출하는 의미이기도 하니 앞으로는 조금씩 이렇게 할 수 있도록 노력하십시오.")
+        await message.channel.send("늘 성격좋고 뭐든 다 받아주는 사람, 가끔은 남에게 얕보일 소지가 있기도 하다는 것을 잊지 마시고")
+        await message.channel.send("그럴 근원이 되는 일은 아예 만들지 않는 것이 좋습니다.")
+        
+    if message.content.startswith("!5"):
+        await message.channel.send("당신의 행운의 숫자는 5 입니다. ")
+        await message.channel.send("행운의 색 - 노란색")
+        await message.channel.send("행운의 아이템 및 장소 - 금으로 된 액세서리, 토파즈, 옐로우 사파이어, 술집, BAR ")
+        await message.channel.send("명심해 둘 것 - 서두르지 말 것, 성질을 급하게 부리지 말 것 ")
+        await message.channel.send("당신은 본래 천성이 연예인과 같은 카리스마가 느껴지는 스타일이라 모든 사람들에게 동경의 대상이 될 뿐만 아니라 인기가 많아 항상 많은 이들의 관심을 한몸에 받습니다.")
+        await message.channel.send("또한, 인간관계도 자연스럽게 형성되는 타입이기 때문에 주변에 많은 사람들이 있어서 혼자 있는 시간이 거의 없을 정도입니다. ")
+        await message.channel.send("그러나 항상 많은 사람들의 동경을 받았기 때문에 타인의 대한 배려심이 부족합니다.  ")
+        await message.channel.send("주변 사람들이 늘 당신을 중심으로 당신의 의견에 동조하고 맞춰준다고 하여 무조건 모든 일에 당신 마음대로 하려 든다면 그들은 더이상 당신을 동경하지 않을 것입니다.")
+        await message.channel.send("때문에 거만한 태도는 금물이며, 매사에 자기중심적인 행동을 하지 않도록 주의하셔야 합니다.")
+        await message.channel.send("항상 자신을 낮추고 겸손한 태도를 유지한다면 당신은 카리스마 있는 매력과 더불어 인간성도 좋은 사람으로 보일 것입니다.")
+        await message.channel.send("그러니 자기 멋대로 행동하다가 주변의 사람들이 떨어져나가지 않도록 주의하시는 것이 바람직한 인간관계를 유지하는데에 도움을 준다는 것을 명심하십시오. ")
+        await message.channel.send("============ ")
+        await message.channel.send("매사 주변 사람들을 먼저 배려하는 생활태도는 늘 그들을 당신의 편이 되게 하여 줄 것입니다.")
+        
+        
+    if message.content.startswith("!6"):
+        await message.channel.send("당신의 행운의 숫자는 6 입니다. ")
+        await message.channel.send("행운의 색 - 은색")
+        await message.channel.send("행운의 아이템 및 장소 - 실크소재의 옷, 다이아, 메이브 펄(진주색), 속도감을 느낄 수 있는 곳")
+        await message.channel.send("명심해 둘 것 - 인내할것 ")
+        await message.channel.send("당신은 모든 일에 호기심이 왕성하고 다양한 사람들과 쉽게 친해지는 타입입니다. 때문에 왕성한 호기심으로 여러 가지 다양한 분야에 관심을 가지게 되고 ")
+        await message.channel.send("그로 인해 수많은 인간관계를 형성하게 되는 것입니다. 또한, 사교적이고 솔직한 타입이기 때문에 주변에 항상 사람이 많을 것입니다.")
+        await message.channel.send("하지만, 다소 실증을 잘 내며 교제상대가 수시로 바뀌기 때문에 깊은 관계를 유지하기 힘든 면도 있으니 이 점을 주의하세요.")
+        await message.channel.send("인간관계에서 실증을 잘 낸다는 것은 매우 좋지 않은 부분입니다. ")
+        await message.channel.send("다양한 관계를 형성하는 만큼 깊이가 없다면 정작 당신이 힘들거나 도움이 필요한 순간에 당신이 속을 터놓고 고민을 말 하거나")
+        await message.channel.send("혹은 도움을 요청할 만한 사람이 없다는 것을 의미하기도 합니다. ")
+        await message.channel.send("때문에 항상 대인관계에 있어서 인내하고 배려하는 태도가 필요하다는 것을 잊지 마시고 모든 인간관계에 신중을 기하도록 하심이 좋습니다.")
+
+        
+    if message.content.startswith("!이모티콘"):
+
+        emoji = [" ꒰⑅ᵕ༚ᵕ꒱ ", " ꒰◍ˊ◡ˋ꒱ ", " ⁽⁽◝꒰ ˙ ꒳ ˙ ꒱◜⁾⁾ ", " ༼ つ ◕_◕ ༽つ ", " ⋌༼ •̀ ⌂ •́ ༽⋋ ",
+                 " ( ･ิᴥ･ิ) ", " •ө• ", " ค^•ﻌ•^ค ", " つ╹㉦╹)つ ", " ◕ܫ◕ ", " ᶘ ͡°ᴥ͡°ᶅ ", " ( ؕؔʘ̥̥̥̥ ه ؔؕʘ̥̥̥̥ ) ",
+                 " ( •́ ̯•̀ ) ",
+                 " •̀.̫•́✧ ", " '͡•_'͡• ", " (΄◞ิ౪◟ิ‵) ", " ˵¯͒ བ¯͒˵ ", " ͡° ͜ʖ ͡° ", " ͡~ ͜ʖ ͡° ", " (づ｡◕‿‿◕｡)づ ",
+                 " ´_ゝ` ", " ٩(͡◕_͡◕ ", " ⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄ ", " ٩(͡ï_͡ï☂ ", " ௐ ", " (´･ʖ̫･`) ", " ε⌯(ง ˙ω˙)ว ",
+                 " (っ˘ڡ˘ς) ", "●▅▇█▇▆▅▄▇", "╋╋◀", "︻╦̵̵̿╤──", "ー═┻┳︻▄", "︻╦̵̵͇̿̿̿̿══╤─",
+                 " ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ", "∑◙█▇▆▅▄▃▂", " ♋♉♋ ", " (๑╹ω╹๑) ", " (╯°□°）╯︵ ┻━┻ ",
+                 " (///▽///) ", " σ(oдolll) ", " 【o´ﾟ□ﾟ`o】 ", " ＼(^o^)／ ", " (◕‿‿◕｡) ", " ･ᴥ･ ", " ꈍ﹃ꈍ "
+                                                                                                 " ˃̣̣̣̣̣̣︿˂̣̣̣̣̣̣ ",
+                 " ( ◍•㉦•◍ ) ", " (｡ì_í｡) ", " (╭•̀ﮧ •́╮) ", " ଘ(੭*ˊᵕˋ)੭ ", " ´_ゝ` ", " (~˘▾˘)~ "] 
+
+        randomNum = random.randrange(0, len(emoji)) 
+        print("랜덤수 값 :" + str(randomNum))
+        print(emoji[randomNum])
+        await message.channel.send(embed=discord.Embed(description=emoji[randomNum], color=0xffaaaa))  
+        
+    if message.content.startswith('!실시간검색어') or message.content.startswith('!실검'):
+        url = "https://www.naver.com/"
+        html = urllib.request.urlopen(url)
+    
+        bsObj = bs4.BeautifulSoup(html, "html.parser")
+        realTimeSerach1 = bsObj.find('div', {'class': 'ah_roll_area PM_CL_realtimeKeyword_rolling'})
+        realTimeSerach2 = realTimeSerach1.find('ul', {'class': 'ah_l'})
+        realTimeSerach3 = realTimeSerach2.find_all('li')
+    
+    
+        embed = discord.Embed(
+        title='네이버 실시간 검색어',
+        description='실시간검색어',
+        color=discord.Color.green()
+            )
+        for i in range(0,20):
+            realTimeSerach4 = realTimeSerach3[i]
+            realTimeSerach5 = realTimeSerach4.find('span', {'class': 'ah_k'})
+            realTimeSerach = realTimeSerach5.text.replace(' ', '')
+            realURL = 'https://search.naver.com/search.naver?ie=utf8&query='+realTimeSerach
+            print(realTimeSerach)
+            embed.add_field(name=str(i+1)+'위', value='\n'+'[%s](<%s>)' % (realTimeSerach, realURL), inline=False) 
+            
+        await message.channel.send(embed=embed)
+        
+        
+    if message.content.startswith('!실시간영화랭킹'):
+        
+        i1 = 0 
+        embed = discord.Embed(
+            title = "실시간 영화 랭킹",
+            description = "",
+            color= discord.Color.red()
+        )
+        hdr = {'User-Agent': 'Mozilla/5.0'}
+        url = 'http://ticket2.movie.daum.net/movie/movieranklist.aspx'
+        print(url)
+        req = Request(url, headers=hdr)
+        html = urllib.request.urlopen(req)
+        bsObj = bs4.BeautifulSoup(html, "html.parser")
+        moviechartBase = bsObj.find('div', {'class': 'main_detail'})
+        moviechart1 = moviechartBase.find('ul', {'class': 'list_boxthumb'})
+        moviechart2 = moviechart1.find_all('li')
+
+        for i in range(0, 20):
+            i1 = i1+1
+            stri1 = str(i1) 
+            print()
+            print(i)
+            print()
+            moviechartLi1 = moviechart2[i]  
+            moviechartLi1Div = moviechartLi1.find('div', {'class': 'desc_boxthumb'})  
+            moviechartLi1MovieName1 = moviechartLi1Div.find('strong', {'class': 'tit_join'})
+            moviechartLi1MovieName = moviechartLi1MovieName1.text.strip() 
+            print(moviechartLi1MovieName)
+
+            moviechartLi1Ratting1 = moviechartLi1Div.find('div', {'class': 'raking_grade'})
+            moviechartLi1Ratting2 = moviechartLi1Ratting1.find('em', {'class': 'emph_grade'})
+            moviechartLi1Ratting = moviechartLi1Ratting2.text.strip()  
+            print(moviechartLi1Ratting)
+
+            moviechartLi1openDay1 = moviechartLi1Div.find('dl', {'class': 'list_state'})
+            moviechartLi1openDay2 = moviechartLi1openDay1.find_all('dd') 
+            moviechartLi1openDay3 = moviechartLi1openDay2[0]
+            moviechartLi1Yerating1 = moviechartLi1openDay2[1]
+            moviechartLi1openDay = moviechartLi1openDay3.text.strip() 
+            print(moviechartLi1openDay)
+            moviechartLi1Yerating = moviechartLi1Yerating1.text.strip()  
+            print(moviechartLi1Yerating)  
+            print()
+            embed.add_field(name='---------------랭킹'+stri1+'위---------------', value='\n영화제목 : '+moviechartLi1MovieName+'\n영화평점 : '+moviechartLi1Ratting+'점'+'\n개봉날짜 : '+moviechartLi1openDay+'\n예매율,랭킹변동 : '+moviechartLi1Yerating, inline=False) 
+
+
+        await message.channel.send(embed=embed)
+        
+        
+
+ 
+
+
+
+
+
+        
+        
+
+        
+        
+
+    
+                 
+        
+         
+     
+
 
 
 
