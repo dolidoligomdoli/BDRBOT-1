@@ -13,13 +13,13 @@ import bs4
 from bs4 import BeautifulSoup
 from urllib.request import urlopen, Request
 
-
+ 
 app = discord.Client()
 
 @app.event
 async def on_ready():
-    print('로그인 중 입니다 ..!')
-    print(app.user.name)
+    print('로그인 중 입니다 ..!')                           #이것은 수정할 필요 없음. 유저들에게 보여지지 않는 곳입니다.
+    print(app.user.name)                                   #그냥 사람으로치면 웹사이트에 로그인하는 과정이라고 보시면 됩니다.
     print(app.user.id)
     print('===============')
     game = discord.Game("배돌이에게 !도와줘라고 도움을 요청해보렴!")
@@ -27,7 +27,7 @@ async def on_ready():
     
 @app.event
 async def on_member_join(member):
-    fmt = '{1.name} 서버에 온 것을 진심으로 환영합니다 {0.mention} 님'
+    fmt = '{1.name} 서버에 온 것을 진심으로 환영합니다 {0.mention} 님'    #신규유저한테만 보여지는 메세지 입니다.
     channel = member.server.get_channel("585087748952817665")
     await app.message.channel.send( fmt.format(member, member.server))
     await app.message.channel.send(member, "안녕? 난 뉴 배돌이야.")
@@ -37,12 +37,12 @@ async def on_member_join(member):
  
 @app.event
 async def on_member_remove(member):
-    channel = member.server.get_channel("585087748952817665")
+    channel = member.server.get_channel("585087748952817665")         
     fmt = '{0.mention} 님이 서버를 떠나셨습니다'
     await app.message.channel.send( fmt.format(member, member.server))
           
 @app.event
-async def my_background_task():
+async def my_background_task():                             #주기적으로 배돌이가 공지를 띄워줍니다.
     await app.wait_until_ready()
     channel = discord.Object(id="585087748952817665")
     while not app.is_closed:
@@ -53,7 +53,7 @@ async def my_background_task():
 @app.event
 async def on_message(message):
 
-    if message.content.startswith("!도와줘"):
+    if message.content.startswith("!도와줘"):               #배돌이에게 도움을 요청하면, 명령어 목록창이 출력됩니다.
         dtime = datetime.datetime.now()
         embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
         await message.channel.send(embed=embed)
@@ -102,14 +102,23 @@ async def on_message(message):
         embed = discord.Embed(title=" *명령어 목록은 계속 업데이트 중 입니다. ", description="  ", color=0xff0000)
         await message.channel.send( embed=embed)
         
-    if message.content.startswith("!안녕"):
+    if message.content.startswith("!안녕"):             #배돌이가 인사를 해줍니다.
+        dtime = datetime.datetime.now()
+        embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
+        await message.channel.send(embed=embed)       
         msg = "{0.author.mention} 안녕?? 반가워, 그동안 잘 지냈니.".format(message)
         await message.channel.send( msg)
         
     if message.content.startswith("?쌔임"):
+        dtime = datetime.datetime.now()
+        embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
+        await message.channel.send(embed=embed)        
         await message.channel.send("?안녕")
         
-    if message.content.startswith("!컴퓨터는?"):
+    if message.content.startswith("!컴퓨터는?"):              #근거있는 자료들만 모았습니다. 컴마왕 관련 자료들은 신뢰하셔도 괜찮습니다.
+        dtime = datetime.datetime.now()
+        embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
+        await message.channel.send(embed=embed)        
         randomNum = random.randrange(1, 4)
         if randomNum==1:
             await message.channel.send(embed=discord.Embed(title="혹시 너 it 관련 정보도 부족하고, 조립 및 A/S가 두렵니? 그렇다면, 컴퓨존을 추천해줄께", color=0x00ff00))
@@ -130,8 +139,11 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="가서 주변 컴잘알들에게 물어보렴, 컴마왕 어떻게 생각하냐고.", color=0xff0000))
             await message.channel.send(embed=discord.Embed(title="참고로 듣보잡 업체들 특징이 뭔지 아니? 스트리머 및 유튜버들에게 광고를 부탁한다는 점이야. ", color=0xff0000))
             
-    if message.content.startswith("!커뮤니티 웹사이트 추천"):
-        randomNum = random.randrange(1, 6)
+    if message.content.startswith("!커뮤니티 웹사이트 추천"):       #추가바람.
+        dtime = datetime.datetime.now()
+        embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
+        await message.channel.send(embed=embed)        
+        randomNum = random.randrange(1, 7)
         if randomNum==1:
             await message.channel.send(embed=discord.Embed(title="네이버 카페는 어떠니", color=0x0000ff))
         if randomNum==2:
@@ -142,8 +154,13 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="클리앙은 어떠니?", color=0x0000ff))
         if randomNum==5:
             await message.channel.send(embed=discord.Embed(title="오늘의유머는 해볼 생각 없어?", color=0x0000ff))
+        if randomNum==6:
+            await message.channel.send(embed=discord.Embed(title="정신병원 갤러리 웹사이트는 어떠니??", color=0x0000ff))            
 
-    if message.content.startswith("!볼 만한 유튜버 추천"):
+    if message.content.startswith("!볼 만한 유튜버 추천"):             #다소 편협함. 추가바람.
+        dtime = datetime.datetime.now()
+        embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
+        await message.channel.send(embed=embed)        
         randomNum = random.randrange(1, 11)
         if randomNum==1:
             await message.channel.send(embed=discord.Embed(title="배틀그라운드, 오버워치 스트리머 및 유튜버이신 군림보님은 어떠니", color=0xff0000))
@@ -166,8 +183,11 @@ async def on_message(message):
         if randomNum==10:
             await message.channel.send(embed=discord.Embed(title="영화 리뷰어이신 홍시네마님은?", color=0xff0000))
         
-    if message.content.startswith("!모바일 게임 추천"):
-        randomNum = random.randrange(1, 6)
+    if message.content.startswith("!모바일 게임 추천"):       #추가바람
+        dtime = datetime.datetime.now()
+        embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
+        await message.channel.send(embed=embed)
+        randomNum = random.randrange(1, 7)
         if randomNum==1:
             await message.channel.send(embed=discord.Embed(title="클래시 오브 클랜은 어떠니?", color=0x0000ff))
         if randomNum==2:
@@ -178,8 +198,10 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="마인크래프트 해보지 그래? ㅋㅋㅋ", color=0x0000ff))
         if randomNum==5:
             await message.channel.send(embed=discord.Embed(title="마블 퓨처 파이트 해봐, 추억의 게임이잖니", color=0x0000ff))
+        if randomNum==6:
+            await message.channel.send(embed=discord.Embed(title="콜 오브 듀티 모바일은 해볼 생각 없니?", color=0x0000ff))            
         
-    if message.content.startswith("!자기소개"):
+    if message.content.startswith("!자기소개"):        #이 부분은 이 소스를 수정해서 새로운 자작봇을 만드실 분들에 해당하시는 분들만 수정 부탁드립니다.
         dtime = datetime.datetime.now()
         embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
         await message.channel.send(embed=embed)
@@ -198,7 +220,10 @@ async def on_message(message):
         msg = "널 또 보길 바랄께, 나중에 보자. {0.author.mention} ".format(message)
         await message.channel.send( msg)
         
-    if message.content.startswith("!PC 게임 추천"):
+    if message.content.startswith("!PC 게임 추천"):      #다소 편협함. 추가바람.
+        dtime = datetime.datetime.now()
+        embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
+        await message.channel.send(embed=embed)
         randomNum = random.randrange(1, 12)
         if randomNum==1:
             await message.channel.send(embed=discord.Embed(title="배틀그라운드는 어떠니", color=0x00ff00))
@@ -223,7 +248,7 @@ async def on_message(message):
         if randomNum==11:
             await message.channel.send(embed=discord.Embed(title="카운터스트라이크 온라인도 한번 해보면 재밌을 거야.", color=0x00ff00))           
 
-    if message.content.startswith("!패치노트"):
+    if message.content.startswith("!패치노트"):                #배돌이의 패치노트입니다. 패치 하나 할때마다 업데이트 됩니다.
         dtime = datetime.datetime.now()
         embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
         await message.channel.send(embed=embed)
@@ -266,8 +291,11 @@ async def on_message(message):
         embed = discord.Embed(title=" ", description=" ***패치노트는 계속 업데이트 할 예정입니다 ^00^ ", color=0x00fefe)
         await message.channel.send(embed=embed)
         
-    if message.content.startswith("!오늘의상식"):
-        await message.channel.send(embed=discord.Embed(title="안녕, 난 뉴 배돌이야. 다음 정보들은 알아두기만 해도 좋은 기본상식들이야.", color=0xfefefe))
+    if message.content.startswith("!오늘의상식"): 
+        dtime = datetime.datetime.now()
+        embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
+        await message.channel.send(embed=embed)        #아이디어 추가바람. 
+        await message.channel.send(embed=discord.Embed(title="안녕? 다음 정보들은 알아두기만 해도 좋은 기본상식들이야.", color=0xfefefe))
         randomNum = random.randrange(1, 4)
         if randomNum==1:
             await message.channel.send(embed=discord.Embed(title="차가운 물은 뜨거운 물보다 더 빨리 데워지고, 뜨거운 물은 차가운 물보다 더 빨리 얼려진다..", color=0xffaaaa))
@@ -279,7 +307,10 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="집에 있는 변기가 막혔을 때는 페트병의 50퍼센트를 정확히 자른 후 받침대가 있는 부분으로 뚜러뻥을 대체 할 수 있다.", color=0xffaaaa))
 
 
-    if message.content.startswith("!볼 만한 영화 추천"):
+    if message.content.startswith("!볼 만한 영화 추천"):           #다소 편협함. 추가바람.
+        dtime = datetime.datetime.now()
+        embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
+        await message.channel.send(embed=embed)       
         await message.channel.send(embed=discord.Embed(title="안녕? 난 니가 어떤 애인진 모르지만, 정성껏 최선을 다해 추천해줄게.", color=0xfefefe))
         randomNum = random.randrange(1, 12)
         if randomNum==1:
@@ -312,8 +343,11 @@ async def on_message(message):
             
             
 
-        
-    if message.content.startswith("!언어"):
+         
+    if message.content.startswith("!언어"):            #이 소스를 참고해서 새로운 자작봇을 만드실 분들에 해당하시는 분들만 수정 부탁드립니다.
+        dtime = datetime.datetime.now()
+        embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
+        await message.channel.send(embed=embed)        
         embed = discord.Embed(title="안녕? 난 뉴 배돌이야. ", description=" ", color=0xaaaaff)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title="지금부터 내가 무슨 언어를 기반으로 개발되어지고 있는지 알려줄께. ", description=" ", color=0xaaaaff)
@@ -331,11 +365,17 @@ async def on_message(message):
         embed = discord.Embed(title=" 재미있는 사실은 1989년 크리스마스 주에, 연구실이 닫혀있어서 그저 심심해서 만든 작품이 파이썬이라는게 .. ", description=" ", color=0xaaaaff)
         await message.channel.send(embed=embed)
       
-    if message.content.startswith('!오늘 내 생일이야'):
+    if message.content.startswith('!오늘 내 생일이야'):          #없애도 되는 기능. 사실 별 쓸모없는 기능.
+        dtime = datetime.datetime.now()
+        embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
+        await message.channel.send(embed=embed)        
         msg = "{0.author.mention} 생일 축하해 !!".format(message) #그냥 자축 기능. 개발자가 외로운 솔로라 만들어본 기능.
         await message.channel.send( msg)
         
-    if message.content.startswith("!랜덤주사위"):
+    if message.content.startswith("!랜덤주사위"):         #이것도 없어도 지장없는 기능. 
+        dtime = datetime.datetime.now()
+        embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
+        await message.channel.send(embed=embed)        
         randomNum = random.randrange(1, 7) 
         print(randomNum)
         if randomNum == 1:
@@ -351,7 +391,7 @@ async def on_message(message):
         if randomNum ==6:
             await message.channel.send( embed=discord.Embed(description=':game_die: ' + ':six: ',color=0xfefe00))
         
-    if message.content.startswith('!오늘뭐할까'):
+    if message.content.startswith('!오늘뭐할까'):           #추가바람.
         dtime = datetime.datetime.now()
         embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
         await message.channel.send(embed=embed)
@@ -387,7 +427,7 @@ async def on_message(message):
         if randomNum==15:
             await message.channel.send(embed=discord.Embed(title="헬스장이라도 가봐. 건강은 자기자신이 챙기는거다.?!", color=0xfe00fe))
             
-    if message.content.startswith("!오늘의운세"):
+    if message.content.startswith("!오늘의운세"):       #추가바람.
         dtime = datetime.datetime.now()
         embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
         await message.channel.send(embed=embed)
@@ -579,7 +619,7 @@ async def on_message(message):
         await message.channel.send("때문에 항상 대인관계에 있어서 인내하고 배려하는 태도가 필요하다는 것을 잊지 마시고 모든 인간관계에 신중을 기하도록 하심이 좋습니다.")
 
         
-    if message.content.startswith("!이모티콘"):
+    if message.content.startswith("!이모티콘"):     #없어도 되는 기능.
 
         emoji = [" ꒰⑅ᵕ༚ᵕ꒱ ", " ꒰◍ˊ◡ˋ꒱ ", " ⁽⁽◝꒰ ˙ ꒳ ˙ ꒱◜⁾⁾ ", " ༼ つ ◕_◕ ༽つ ", " ⋌༼ •̀ ⌂ •́ ༽⋋ ",
                  " ( ･ิᴥ･ิ) ", " •ө• ", " ค^•ﻌ•^ค ", " つ╹㉦╹)つ ", " ◕ܫ◕ ", " ᶘ ͡°ᴥ͡°ᶅ ", " ( ؕؔʘ̥̥̥̥ ه ؔؕʘ̥̥̥̥ ) ",
@@ -597,7 +637,7 @@ async def on_message(message):
         print(emoji[randomNum])
         await message.channel.send(embed=discord.Embed(description=emoji[randomNum], color=0xffaaaa))  
         
-    if message.content.startswith('!실시간검색어') or message.content.startswith('!실검'):
+    if message.content.startswith('!실시간검색어') or message.content.startswith('!실검'):       
         url = "https://www.naver.com/"
         html = urllib.request.urlopen(url)
     
