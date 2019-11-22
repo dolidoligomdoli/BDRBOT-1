@@ -1,5 +1,5 @@
-discord.py==1.0.1
-beautifulsoup4==4.6.0
-requests==2.18.3
-urllib3==1.22
-pynacl==1.2.1
+discord.py==1.2.3
+beautifulsoup4==4.8.0
+requests==2.22.0
+urllib3==1.25.6
+pynacl==1.12.0
