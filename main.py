@@ -115,7 +115,7 @@ async def on_message(message):
         await message.channel.send(embed=embed)        
         await message.channel.send("?안녕")
         
-    if message.content.startswith("씨발") or message.content.startswith('개새끼') or message.content.startswith('병신')
+    if message.content.startswith("씨발") or message.content.startswith('개새끼') or message.content.startswith('병신'):
         await message.channel.send(embed=embed)        
         await message.channel.send("바르고 건전한 표현이 담긴 언어를 사용해요!^___^")
         
