@@ -115,9 +115,6 @@ async def on_message(message):
         await message.channel.send(embed=embed)        
         await message.channel.send("?안녕")
         
-    if message.content.startswith("씨발") or message.content.startswith('개새끼') or message.content.startswith('병신'):
-        await message.channel.send(embed=embed)        
-        await message.channel.send("바르고 건전한 표현이 담긴 언어를 사용해요!^___^")
         
     if message.content.startswith("!컴퓨터는?"):              #근거있는 자료들만 모았습니다. 컴마왕 관련 자료들은 신뢰하셔도 괜찮습니다.
         dtime = datetime.datetime.now()
